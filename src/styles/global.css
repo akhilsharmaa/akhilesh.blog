@@ -146,3 +146,81 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+
+.split-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    width: 1080px;       
+    max-width: 1080px;       
+    margin: auto;     
+	padding: 2rem;    
+	color: rgb(var(--gray-dark));
+}
+
+.main-content {
+	flex: 3; 
+	padding: 0em;
+}
+
+.sidebar {
+    flex: 1;  
+    padding: 2em; 
+    position: sticky;
+    top: 0;  
+    align-self: flex-start; 
+    overflow-y: auto; 
+}
+
+
+/* Sidebar Image Styling */
+.sidebar-image {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 1em;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.sidebar li {
+	margin-bottom: 0.5em;
+}
+
+.sidebar li a {
+	text-decoration: none;
+	color: var(--accent);
+}
+
+.sidebar li a:hover {
+	text-decoration: underline;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+	margin-top: 0;
+}
+
+h2 {
+	margin-bottom: 0.5em;
+}
+ 
+@media (max-width: 768px) {
+	.split-layout {
+		flex-direction: column;
+	}
+
+	.sidebar {
+		position: relative;
+		width: 100%;
+		margin-bottom: 2em;
+	}
+}
