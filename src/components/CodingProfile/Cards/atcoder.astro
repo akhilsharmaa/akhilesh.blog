@@ -40,8 +40,6 @@ async function getContestDetails(username: string) {
                                         .text()
                                         .trim() || "Fetching Failed",
                 };
-
-                console.log(userInfo);
                 return userInfo;
         } catch (error) {
                 console.error("Failed to fetch contest details:", error);
@@ -64,13 +62,8 @@ var currentRating:string =  data?.currentRating || 'Non';
 var highestRating:string =  data?.highestRating || "Non"; 
 
 currentRating = helpclean(currentRating);
-highestRating = helpclean(highestRating);
-console.log(currentRating);
-
-
-const rank =  data?.rank; 
-
-
+highestRating = helpclean(highestRating);  
+ 
 ---
 <ProfileCard  
         platform="atcoder" 
