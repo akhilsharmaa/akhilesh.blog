@@ -1,0 +1,81 @@
+---
+import ProfileCard from "../../CodingProfile/Layout.astro";
+
+import fetch from "node-fetch";
+import { load } from "cheerio";
+
+async function getContestDetails(username: string) {
+        try {
+                const url = `https://atcoder.jp/users/${username}`;
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                        throw new Error(
+                                `HTTP error! Status: ${response.status}`,
+                        );
+                }
+
+                const html = await response.text(); // Fetch the HTML as text
+                const $ = load(html); // Load HTML into Cheerio
+
+                // Extract data using Cheerio
+                const userInfo = {
+                        badge: $("h3 b").text().trim() || "Not Found",
+                        currentRating:
+                                $('table.dl-table tr th:contains("Rating")')
+                                        .next("td")
+                                        .text()
+                                        .trim() || "Fetching Failed",
+                        highestRating:
+                                $(
+                                        'table.dl-table tr th:contains("Highest Rating")',
+                                )
+                                        .next("td")
+                                        .text() 
+                                        .replace(/\n|\t/g, "")  
+                                        .trim() || "Fetching Failed",
+                        rank:
+                                $('table.dl-table tr th:contains("Rank")')
+                                        .next("td")
+                                        .text()
+                                        .trim() || "Fetching Failed",
+                };
+
+                console.log(userInfo);
+                return userInfo;
+        } catch (error) {
+                console.error("Failed to fetch contest details:", error);
+        }
+}
+
+function helpclean(str:string) { 
+        var result  = ""; 
+        for (let i = 0; i < str.length; i++) {
+                if(str[i] < '0' || str[i] > '9'){break;}
+                result += str[i];
+        }
+        return result; 
+}
+
+const username = 'akhilsharma'; 
+const data = await getContestDetails(username);;
+const badge =  data?.badge; 
+var currentRating:string =  data?.currentRating || 'Non'; 
+var highestRating:string =  data?.highestRating || "Non"; 
+
+currentRating = helpclean(currentRating);
+highestRating = helpclean(highestRating);
+console.log(currentRating);
+
+
+const rank =  data?.rank; 
+
+
+---
+<ProfileCard  
+        platform="atcoder" 
+        username= {username}
+        highestRating= {highestRating}
+        badge={badge}
+        currentRating={currentRating}>
+</ProfileCard>

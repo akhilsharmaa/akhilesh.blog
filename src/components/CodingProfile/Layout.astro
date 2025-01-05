@@ -1,0 +1,12 @@
+---
+const today = new Date();
+const { highestRating, currentRating, badge, username, platform} = Astro.props;
+---
+<div class="coding-profile-card">
+    <p> Highest Rating:  {highestRating}</p>
+    <p> Current Rating:  {currentRating}</p>
+    <p> Badge :  {badge}</p> 
+    <p> username :  {username}</p> 
+    <p> platform :  {platform}</p>
+    <slot/> 
+</div>

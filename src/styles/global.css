@@ -213,8 +213,8 @@ h3 {
 
 h2 {
 	margin-bottom: 0.5em;
-}
- 
+} 
+
 @media (max-width: 768px) {
 	.split-layout {
 		flex-direction: column;
@@ -224,5 +224,27 @@ h2 {
 		position: relative;
 		width: 100%;
 		margin-bottom: 2em;
+	}
+}
+ 
+.coding-profile-wrapper{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px; 
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center; 
+  }
+  
+.coding-profile-card{
+	background-color: #f0f0f0;
+	padding: 20px; 
+	border-radius: 5px; 
+	border: 1px solid black;
+}
+  
+@media (max-width: 600px) {
+	.coding-profile-card{
+		padding: 15px;
 	}
 }

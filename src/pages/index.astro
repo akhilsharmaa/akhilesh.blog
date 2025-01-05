@@ -2,6 +2,9 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Atcoder from '../components/CodingProfile/Cards/atcoder.astro'; 
+import CodeForces from '../components/CodingProfile/Cards/codeforces.astro'; 
+import Leetcode from '../components/CodingProfile/Cards/leetcode.astro'; 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -34,6 +37,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a> by
 					<a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 				</p>
+
+				<div class="coding-profile-wrapper">
+					<Atcoder/>
+					<CodeForces/>
+					<Leetcode/>
+				</div>
+
 			</main>
 			<aside class="sidebar"> 
 				<img src="./my-image.png" alt="Placeholder Image" class="sidebar-image" /> 
@@ -45,7 +55,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<li><a href="#">GitHub</a></li>
 					<li><a href="#">Twitter</a></li>
 				</ul>
-				 
 			</aside>
 		</div>
 		<Footer />
