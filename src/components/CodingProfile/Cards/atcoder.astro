@@ -3,44 +3,56 @@ import ProfileCard from "../../CodingProfile/Layout.astro";
 
 import fetch from "node-fetch";
 import { load } from "cheerio";
+import cached from 'cached'; 
+
+const cache = cached('cache');
 
 async function getContestDetails(username: string) {
+
+        const url = `https://atcoder.jp/users/${username}`;
+
         try {
-                const url = `https://atcoder.jp/users/${username}`;
-                const response = await fetch(url);
+                const result = cache.getOrElse(url, async () => {
 
-                if (!response.ok) {
-                        throw new Error(
-                                `HTTP error! Status: ${response.status}`,
-                        );
-                }
+                        console.log('Fetching/Scrapping detail from Atcoder...');  
+                        const response = await fetch(url);
 
-                const html = await response.text(); // Fetch the HTML as text
-                const $ = load(html); // Load HTML into Cheerio
+                        if (!response.ok) {
+                                throw new Error(
+                                        `HTTP error! Status: ${response.status}`,
+                                );
+                        }
 
-                // Extract data using Cheerio
-                const userInfo = {
-                        badge: $("h3 b").text().trim() || "Not Found",
-                        currentRating:
-                                $('table.dl-table tr th:contains("Rating")')
-                                        .next("td")
-                                        .text()
-                                        .trim() || "Fetching Failed",
-                        highestRating:
-                                $(
-                                        'table.dl-table tr th:contains("Highest Rating")',
-                                )
-                                        .next("td")
-                                        .text() 
-                                        .replace(/\n|\t/g, "")  
-                                        .trim() || "Fetching Failed",
-                        rank:
-                                $('table.dl-table tr th:contains("Rank")')
-                                        .next("td")
-                                        .text()
-                                        .trim() || "Fetching Failed",
-                };
-                return userInfo;
+                        const html = await response.text(); // Fetch the HTML as text
+                        const $ = load(html); // Load HTML into Cheerio
+
+                        // Extract data using Cheerio
+                        const userInfo = {
+                                badge: $("h3 b").text().trim() || "Not Found",
+                                currentRating:
+                                        $('table.dl-table tr th:contains("Rating")')
+                                                .next("td")
+                                                .text()
+                                                .trim() || "Fetching Failed",
+                                highestRating:
+                                        $(
+                                                'table.dl-table tr th:contains("Highest Rating")',
+                                        )
+                                                .next("td")
+                                                .text() 
+                                                .replace(/\n|\t/g, "")  
+                                                .trim() || "Fetching Failed",
+                                rank:
+                                        $('table.dl-table tr th:contains("Rank")')
+                                                .next("td")
+                                                .text()
+                                                .trim() || "Fetching Failed",
+                        };
+ 
+                        return userInfo;
+                });
+  
+                return result;
         } catch (error) {
                 console.error("Failed to fetch contest details:", error);
         }

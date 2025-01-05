@@ -1,18 +1,29 @@
 ---
+import { record } from 'astro:schema';
 import ProfileLayout from '../../CodingProfile/Layout.astro';
+import cached from 'cached'; 
+
+const cache = cached('cache');
 
 async function getContestDetails(username: string) {
   try {
+
     const url = "https://codeforces.com/api/user.info?handles=" + username +"&checkHistoricHandles=false"; 
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    
-    const result = await response.json(); 
-    return  result.result[0];
-    
+
+    const result = cache.getOrElse(url, async () => {
+        console.log('Fetching/Scrapping detail from Codefoces...');  
+        
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const result = await response.json(); 
+        return result.result[0];
+    });
+        
+    return result;
   } catch (error) {
     console.error("Failed to fetch contest details:", error);
   }
