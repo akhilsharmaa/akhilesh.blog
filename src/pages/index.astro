@@ -15,26 +15,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body class="">
 	<Header />
-	<homepage> 
+	<homepage class="flex flex-col align-center justify-center"> 
 		
-		<div class="lg:grid grid-cols-2 lg:grid-cols-4 gap-6 md:mx-0 lg:mx-32 w-full"> 
-			<!-- Sidebar -->
-			<div class="p-4 lg:col-start-4 lg:col-span-1">
-			  <img src="./my-image.png" alt="Placeholder Image" class="profile-image" />
-			  <h3 class="text-lg font-bold mb-3">Quick Links</h3>
-			  <ul class="space-y-2">
-				<li><a href="#" class="text-blue-500 hover:underline">My Portfolio</a></li>
-				<li><a href="#" class="text-blue-500 hover:underline">Contact Me</a></li>
-				<li><a href="#" class="text-blue-500 hover:underline">GitHub</a></li>
-				<li><a href="#" class="text-blue-500 hover:underline">Twitter</a></li>
-			  </ul>
+		<hr class="h-px lg:my-12 my-8 border-0">
+
+		<div class="m-4">  
+			<div class="flex flex-row align-center justify-between"> 
+				<div>
+					<h1 class="text-2xl font-bold mb-4">Hi, I'm Akhilesh!</h1>
+					<p class="mb-6 text-gray-700">Fueled by love for <span class="text-red-700">engineering</span> .</p>
+				</div>
+				<img src="./my-image.png" alt="Placeholder Image" class="profile-image" />
 			</div>
-		  
-			<!-- Main Content -->
-			<div class="  p-6 lg:row-start-1 lg:col-span-3">
-				
-				<h1 class="text-2xl font-bold mb-4">Hi, I'm Akhilesh!</h1>
-				<p class="mb-6 text-gray-700">Fueled by a love for engineering.</p>
 
 				<hr class="h-px my-4 bg-gray-200 border-0">
 
@@ -51,4 +43,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</homepage>	  
 	<Footer />
 	</body>
+
+	<style>
+
+		homepage {
+			max-width: 100%;
+			height: max-content;
+			display: flex;
+			align-items: center; 
+			margin: 0 auto;  
+			box-sizing: border-box; 
+		}
+
+		@media (max-width: 768px) {
+			.homepage {
+				flex-direction: column;
+			}
+		}
+
+		.profile-image{
+			width: 10rem;
+		}
+
+	</style>
+	
 </html>

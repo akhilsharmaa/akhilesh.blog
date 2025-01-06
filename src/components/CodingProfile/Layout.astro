@@ -15,4 +15,57 @@ const { highestRating, currentRating, badge, username, platform, plaform_logo_ur
         <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>  
         <h4> <span class="item-context">  @{username} </span></h4>
     </div>
-</> 
+</div> 
+
+
+<style>
+
+
+    .profile-image{
+        width: 10rem;
+    }
+
+    .coding-profile-card {
+        background: white;
+        width: 100%; 
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px #5f5f5f solid;
+    }
+
+    .Codeforces {
+        box-shadow: 0.25rem 0.25rem 0 #007e857f;
+    }
+
+    .Leetcode {
+        box-shadow: 0.25rem 0.25rem 0 #d1760071;
+    }
+
+    .Atcoder {
+        box-shadow: 0.25rem 0.25rem 0 #55555589;
+    }
+
+    .coding-profile-card h4 { 
+        font-size: 1rem;
+        padding:  0 10px;
+        font-weight: 400;
+        margin: 0px;
+    }
+
+    .platform-text {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .item-context{
+        color: #5f5f5f;
+    }
+
+    .coding-profile-card img {
+        object-fit: cover;
+        padding: 0px 5px;
+        height: 15px;
+        filter: grayscale(100%);
+    }
+    
+</style>
