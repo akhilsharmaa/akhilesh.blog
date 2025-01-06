@@ -226,18 +226,6 @@ h2 {
 	}
 }
 
-.nav-logo{
-	height: 1.75rem;
-}
-
-.nav-logo-text{
-	font-family:'BarlowCondensed'; 
-	font-weight: 700;
-	font-size: 32px;
-	margin-bottom: -5px;
-	padding-left: 7px;
-	line-height: 0;
-}
 
 homepage {
     width: 80rem;
