@@ -23,8 +23,41 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+@font-face {
+	font-family: 'PlayfairDisplay';
+	src: url('/fonts/PlayfairDisplay-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay';
+	src: url('/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'BarlowCondensed';
+	src: url('/fonts/BarlowCondensed-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'BarlowCondensed';
+	src: url('/fonts/BarlowCondensed-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 body {
-	font-family: 'RedHatDisplay', sans-serif;
+	/* font-family:'PlayfairDisplay', Times, serif; */
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -192,7 +225,20 @@ h2 {
 		margin-bottom: 2em;
 	}
 }
-   
+
+.nav-logo{
+	height: 1.75rem;
+}
+
+.nav-logo-text{
+	font-family:'BarlowCondensed'; 
+	font-weight: 700;
+	font-size: 32px;
+	margin-bottom: -5px;
+	padding-left: 7px;
+	line-height: 0;
+}
+
 homepage {
     width: 80rem;
     max-width: 100%;
@@ -204,10 +250,7 @@ homepage {
 }
 
 .profile-image{
-	border-radius: 10rem;
 	width: 10rem;
-	height: 10rem;
-	object-fit: cover;
 }
 
 .coding-profile-card {
