@@ -13,41 +13,42 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
-		<div class="split-layout">
-			<main class="main-content">
-				<h1>Hi, I'm Akhilesh!</h1> 
-				<p>Fueled by a love for engineering. </p>
+	<body class="">
+	<Header />
+	<homepage> 
+		
+		<div class="lg:grid grid-cols-2 lg:grid-cols-4 gap-2 md:mx-0 lg:mx-32 w-full"> 
+			<!-- Sidebar -->
+			<div class="p-4 lg:col-start-4 lg:col-span-1">
+			  <img src="./my-image.png" alt="Placeholder Image" class="profile-image" />
+			  <h3 class="text-lg font-bold mb-3">Quick Links</h3>
+			  <ul class="space-y-2">
+				<li><a href="#" class="text-blue-500 hover:underline">My Portfolio</a></li>
+				<li><a href="#" class="text-blue-500 hover:underline">Contact Me</a></li>
+				<li><a href="#" class="text-blue-500 hover:underline">GitHub</a></li>
+				<li><a href="#" class="text-blue-500 hover:underline">Twitter</a></li>
+			  </ul>
+			</div>
+		  
+			<!-- Main Content -->
+			<div class="  p-6 lg:row-start-1 lg:col-span-3">
+				
+				<h1 class="text-2xl font-bold mb-4">Hi, I'm Akhilesh!</h1>
+				<p class="mb-6 text-gray-700">Fueled by a love for engineering.</p>
 
-				<div class="coding-profile-wrapper">
-					<CodeForces/>
-					<Leetcode/>
-					<Atcoder/>
+				<hr class="h-px my-4 bg-gray-200 border-0">
+
+				<div class="grid gap-4 md:grid-cols-3">
+					<div><CodeForces /></div>
+					<div><Leetcode /></div>
+					<div><Atcoder /></div>
 				</div>
 
-				<!-- <article class="cta">
-					<img src='https://images.unsplash.com/photo-1600078686889-8c42747c25fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzMjg5Nw&ixlib=rb-1.2.1&q=80&w=400' alt='Bluetit'>
-					<div class="cta__text-column">
-						<h2>Aspect ratio is great	</h2>
-						<p>This image has an aspect ratio of 3/2.</p>
-						<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio">Read all about it</a>
-					</div>
-				</article> -->
-
-			</main>
-			<aside class="sidebar"> 
-				<img src="./my-image.png" alt="Placeholder Image" class="sidebar-image" /> 
-				
-				<h3>Quick Links</h3>
-				<ul>
-					<li><a href="#">My Portfolio</a></li>
-					<li><a href="#">Contact Me</a></li>
-					<li><a href="#">GitHub</a></li>
-					<li><a href="#">Twitter</a></li>
-				</ul>
-			</aside>
+			  	<hr class="h-px my-4 bg-gray-200 border-0">
+			</div>
 		</div>
-		<Footer />
+
+	</homepage>	  
+	<Footer />
 	</body>
 </html>

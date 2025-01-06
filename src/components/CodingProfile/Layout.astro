@@ -3,17 +3,16 @@ const today = new Date();
 const { highestRating, currentRating, badge, username, platform, plaform_logo_url} = Astro.props;
 ---
 
-<div class:list={['coding-profile-card', platform]} >
-    <div class="platform-logo-wrapper">
-        <div class="centered-flex">
-            <img src={plaform_logo_url} alt="">
-            <h2 class="platform-text"> {platform}</h2>
-        </div>
+<div class:list={['coding-profile-card', platform]} > 
+    <div class="flex m-auto w-max pt-2">
+        <img src={plaform_logo_url} alt="">
+        <h2 class="platform-text"> {platform}</h2>
     </div>  
-    <div class="my-2">
+    <hr class="h-px mb-2 bg-gray-200 border-0 dark:bg-gray-700">
+    <div class="ml-4 mb-2">
         <h4> <span class="item-context">Badge - </span>{badge}</h4> 
-        <h4> <span class="item-context">Highest Rating - </span> {highestRating}</h4>
-        <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>
+        <h4> <span class="item-context">Rating - </span> {highestRating}</h4>
+        <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>  
         <h4> <span class="item-context">  @{username} </span></h4>
     </div>
 </> 

@@ -136,17 +136,13 @@ hr {
 	position: absolute !important;
 	height: 1px;
 	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
+	overflow: hidden; 
+	clip: rect(1px 1px 1px 1px); 
+	clip: rect(1px, 1px, 1px, 1px); 
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
-
+ 
 
 .split-layout {
     display: flex;
@@ -173,36 +169,7 @@ hr {
     overflow-y: auto; 
 }
 
-
-/* Sidebar Image Styling */
-.sidebar-image {
-	width: 160px;
-	height: 160px;
-	object-fit:cover;
-	border-radius: 100%;
-	margin-bottom: 1em;
-}
-
-/* Sidebar Links */
-.sidebar ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.sidebar li {
-	margin-bottom: 0.5em;
-}
-
-.sidebar li a {
-	text-decoration: none;
-	color: var(--accent);
-}
-
-.sidebar li a:hover {
-	text-decoration: underline;
-}
-
+ 
 /* Headings */
 h1,
 h2,
@@ -225,23 +192,30 @@ h2 {
 		margin-bottom: 2em;
 	}
 }
- 
-.coding-profile-wrapper{
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem; 
-	box-sizing: border-box;
-	justify-content: center;
-	align-items: center; 
+   
+homepage {
+    width: 80rem;
+    max-width: 100%;
+	height: max-content;
+    display: flex;  
+    align-items: center; 
+    margin: 0 auto;  
+    box-sizing: border-box; 
 }
 
+.profile-image{
+	border-radius: 10rem;
+	width: 10rem;
+	height: 10rem;
+	object-fit: cover;
+}
 
 .coding-profile-card {
 	background: white;
-	width: 100%;
-	padding: 0.75rem 0rem;
+	width: 100%; 
 	border-radius: 4px;
 	overflow: hidden;
+	padding: 0;
 	border: 1px #5f5f5f solid;
 }
 
@@ -255,14 +229,6 @@ h2 {
 
 .Atcoder {
 	box-shadow: 0.25rem 0.25rem 0 #55555589;
-}
-
-.coding-profile-card p { 
-	font-size: 0.7rem;	
-	margin-left: 14px;
-	margin-right: 2px;
-	line-height: 8px;
-	display: inline;
 }
 
 .coding-profile-card h4 { 
@@ -283,36 +249,4 @@ h2 {
     height: 15px;
     filter: grayscale(100%);
 }
-
-.platform-logo-wrapper{
-	padding: 0;
-	margin: 0;
-	border-bottom: 1px solid #544343;
-}
-
-.currentrating-text{
-	padding: 0; 
-	margin-top: -10px;
-}
-
-.centered-flex {
-    display: flex; 
-	margin: auto;
-	width: max-content;
-	padding: 0px;
-}
-
-.item-context{
-	color: #4e4e4e;
-	font-weight: 400;
-}
-
-.my-2{
-	padding: 1rem 0rem 0rem 1rem;
-}
-
-@media (max-width: 600px) {
-	.coding-profile-card{
-		padding: 15px;
-	}
-}
+ 
