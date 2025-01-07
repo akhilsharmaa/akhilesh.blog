@@ -1,0 +1,112 @@
+---
+---
+
+<div class="carousel-image-container relative w-full  x-auto">
+    <!-- Single <img> that we will replace every 3s -->
+    <img
+      id="carousel-image"
+      src="assets/image1.jpg"
+      alt="Bodh Gaya, Bihar"
+      class="w-full h-auto object-cover filter grayscale
+      transition-all
+      duration-700
+      ease-in-out"
+    />
+
+    <div class="absolute md:bottom-2 md:right-4 bottom-2 right-2  bg-opacity-50 text-white text-end px-2 py-1">
+        <p id="carousel-caption" 
+            class="md:text-2xl text-sm">
+            Bodh Gaya, Bihar 
+        </p>
+        <p id="carousel-description"
+            class="text-sm"> 
+            Bodh Gaya, Bihar 
+        </p>
+    </div>
+  </div>
+
+  <script>
+
+    const images = [
+    {
+        src: 'assets/image1.jpg',
+        caption: 'Bodh Gaya, Bihar',
+        description: 'Most visited place, 100km from my hometown',
+    },
+    {
+        src: 'assets/image6.jpg',
+        caption: 'Kolkata',
+        description: 'Heritage Institute of Technology, My College, Kolkata',
+    },
+    ];
+    
+
+    // Grab elements from the DOM
+    const imgElement = document.getElementById('carousel-image');
+    const captionElement = document.getElementById('carousel-caption');
+    const descriptionElement = document.getElementById('carousel-description');
+
+    let currentIndex = 0; // Start on the first image
+
+    // Function to update the image and caption
+    function showImage(index) {
+        const imageInfo = images[index];
+        imgElement.src = imageInfo.src;
+        captionElement.textContent = imageInfo.caption;
+        descriptionElement.textContent = imageInfo.description;
+    }
+
+    // Function to start the carousel
+    function startCarousel() {
+    // Display the first image immediately
+    showImage(currentIndex);
+
+    // Change image every 3 seconds
+    setInterval(() => {
+        // Move to the next index
+        currentIndex = (currentIndex + 1) % images.length;
+        // Update the carousel with the next image
+        showImage(currentIndex);
+    }, 3000); // 3000ms = 3 seconds
+    }
+
+    // Initialize the carousel once the page loads
+    window.onload = startCarousel;
+
+</script>
+
+<style>
+
+    p{
+        line-height: 0;
+        color: #ffffff;
+    }
+
+    
+    #carousel-image {
+        border-radius: 0;
+        height: 32rem;
+        width: 100%;
+        object-fit: cover;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(80%);
+        -webkit-transition: filter 0.8s ease-in-out;
+        transition: filter 0.8s ease-in-out;
+    }
+
+	#carousel-image:hover {
+		-webkit-filter: grayscale(80%);
+		filter: grayscale(50%);
+	}
+
+    #carousel-caption{
+        color: var(--accent);
+    }
+
+    #carousel-description{
+        padding-bottom: 14px;
+        text-shadow: 4px solid #fff;
+        /* border-bottom: 2px solid #ffffff56; */
+    }
+
+</style>
