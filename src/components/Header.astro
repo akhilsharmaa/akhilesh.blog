@@ -4,12 +4,12 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav class="md:px-20 md:pt-8">
+	<nav>
 		<div class="p-0 m-0 flex items-center justify-center ">
 			<img class="nav-logo" src="./akhil-penguin-logo.png" alt="">
 			<a class="nav-logo-text" href="/">{SITE_TITLE}</a>
 		  </div>
-		<div class="internal-links">
+		<div class="navlink">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blogs</HeaderLink>
 			<HeaderLink href="/projects">Projects</HeaderLink>
@@ -35,6 +35,7 @@ import { SITE_TITLE } from '../consts';
 	nav {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		justify-content: space-between; 
 	}
 	nav a {
@@ -50,6 +51,11 @@ import { SITE_TITLE } from '../consts';
 	.social-links,
 	.social-links a {
 		display: flex;
+	}
+
+	.navlink{
+		display:inline;;
+		text-align: center;
 	}
 
 	.nav-logo{
@@ -71,6 +77,10 @@ import { SITE_TITLE } from '../consts';
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
+		}
+
+		.navlink{
+			width: 100%;
 		}
 
 		nav {
