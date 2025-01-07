@@ -54,7 +54,8 @@ import { SITE_TITLE } from '../consts';
 	nav {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-around;
+		border-bottom: 1px solid #b7b7b7;
 	}
 	nav a {
 		padding: 1em 0.5em;
@@ -64,7 +65,7 @@ import { SITE_TITLE } from '../consts';
 	}
 	nav a.active {
 		text-decoration: none;
-		border-bottom-color: var(--accent);
+		border-bottom-color: rgb(35, 4, 4);
 	}
 	.social-links,
 	.social-links a {
@@ -80,7 +81,6 @@ import { SITE_TITLE } from '../consts';
 		font-weight: 700;
 		font-size: 30px;
 		margin-bottom: -5px;
-		margin-left: -5px;
 		line-height: 0;
 	}
 
@@ -88,6 +88,14 @@ import { SITE_TITLE } from '../consts';
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
+		}
+
+		nav {
+			justify-content: space-between;
+		}
+		
+		.nav-logo-text{
+			font-size: 20px;
 		}
 	}
 </style>
