@@ -1,8 +1,10 @@
 :root {
-	--accent: #2337ff;
+	--accent: #ff2323;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
+	--background:  #ffffff;
+	--secondary-background:  #eaeaea;
 	--gray-light: 229, 233, 240;
 	--gray-dark: 34, 41, 57;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
@@ -56,17 +58,41 @@
 	font-display: swap;
 }
 
-body {
-	/* font-family:'PlayfairDisplay', Times, serif; */
-	margin: 0;
+@font-face {
+	font-family: 'EBGaramond';
+	src: url('/fonts/EBGaramond-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'EBGaramond';
+	src: url('/fonts/EBGaramond-Medium.ttf') format('ttf');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'EBGaramond';
+	src: url('/fonts/EBGaramond-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+body { 
+	max-width: 1100px; 
+	min-width: 320px;
+	margin: auto;
 	padding: 0;
+	font-family: 'EBGaramond';
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background: var(--secondary-background); 
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 17px;
+	font-size: 21px;
 	line-height: 1.7;
 }
 main {
@@ -155,11 +181,16 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 18px; 
+		width: 100%; 
 	}
 	main {
 		padding: 1em;
 	}
+}
+
+homepage{
+	background: var(--background);
 }
 
 .sr-only {
@@ -175,34 +206,8 @@ hr {
 	clip-path: inset(50%);
 	white-space: nowrap;
 }
- 
+  
 
-.split-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-    width: 980px;       
-    max-width: 980px;       
-    margin: auto;     
-	padding: 2rem;    
-	color: rgb(var(--gray-dark));
-}
-
-.main-content {
-	flex: 3; 
-}
-
-.sidebar {
-    flex: 1;  
-	padding-left: 2rem;
-    position: sticky;
-    top: 3rem;  
-    align-self: flex-start; 
-    overflow-y: auto; 
-}
-
- 
 /* Headings */
 h1,
 h2,
