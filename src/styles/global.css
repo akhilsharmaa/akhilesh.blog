@@ -1,5 +1,5 @@
 :root {
-	--accent: #ff2323;
+	--accent: #ff5b19;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
@@ -83,8 +83,7 @@
 body { 
 	max-width: 1100px; 
 	min-width: 320px;
-	margin: auto;
-	padding: 0;
+	margin: auto; 
 	font-family: 'EBGaramond';
 	text-align: left;
 	background: var(--secondary-background); 
@@ -95,11 +94,10 @@ body {
 	font-size: 21px;
 	line-height: 1.7;
 }
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+main { 
+	background: var(--background); 
 	margin: auto;
-	padding: 3em 1em;
+	padding: 6rem;
 }
 h1,
 h2,
