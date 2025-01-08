@@ -8,7 +8,12 @@ import Leetcode from '../components/CodingProfile/Cards/leetcode.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import ImageCarosel from '../components/ImageCarosel.astro';
 import { HighlightSpanKind } from 'typescript';
+import { getCollection } from 'astro:content'; 
+import FormattedDate from '../components/FormattedDate.astro';
 
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 
 
@@ -25,7 +30,7 @@ import { HighlightSpanKind } from 'typescript';
 		<main>
 				<div class="flex flex-wrap items-center justify-between ">
 					<div class="md:w-3/4 w-full"> 
-						<p class="text-3xl"><span class="text-gray-600">Hi, I'm  </span><highlight >Akhilesh </highlight> Kumar Sharma.</p>
+						<p class="text-3xl"><span class="text-gray-600">Hey, I'm  </span><highlight >Akhilesh</highlight><span class="surname"> Kumar Sharma</span>.</p>
 						<p>Currently pursuing my <highlight> Bachelor's </highlight> degree in 
 								 Computer Science at the
 								   Heritage Institute of Technology, Kolkata,  
@@ -66,7 +71,28 @@ import { HighlightSpanKind } from 'typescript';
 		<ImageCarosel />
 
 		<main>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eveniet ut impedit officia fugit porro accusamus. Totam, nobis id rerum perspiciatis quod mollitia earum blanditiis placeat enim culpa assumenda! Inventore!</p>
+			
+			<p>whenever, i got to know something new or interesting, i try to document it in form of blog and share it to the world. 
+			   you can checkout some of the blogs that i have written -  
+			</p>
+
+			
+			<ul>
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<p class="blog-title">{post.data.title}</p>
+							</a>
+							<p class="text-base blog-decription">  {post.data.description}</p>
+							<p class="text-sm date">
+								<FormattedDate date={post.data.pubDate} />
+							</p>
+						</li>
+					))
+				}
+			</ul>
+
 		</main>	
 
 	<Footer />
@@ -82,11 +108,25 @@ import { HighlightSpanKind } from 'typescript';
 			#carousel-image{
 				height: 22rem;
 			}
+
+			.surname{
+				display: none;
+			}
+		}
+
+		.blog-title{
+			padding-top: 0;
+			margin: 0;
 		}
 
 		.profile-image{
 			width: 12rem;
 		}
+		
+		ul{
+			padding-left: 2rem;
+		}
+
 
 	</style>
 	
