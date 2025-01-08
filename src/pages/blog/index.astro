@@ -5,10 +5,14 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { render } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+
+
 ---
 
 <!doctype html>
@@ -86,6 +90,11 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
+
+				<h3 class="color-primary">Blogs</h3>
+				<hr>
+				<br>
+
 				<ul>
 					{
 						posts.map((post) => (
