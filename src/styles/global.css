@@ -94,6 +94,7 @@ body {
 	font-size: 24px;
 	line-height: 2rem;
 }
+
 main { 
 	background: var(--background); 
 	margin: auto;
@@ -102,6 +103,12 @@ main {
 
 main p {  
 	width: 80%;
+}
+
+
+main li{
+	margin-left: 2rem;
+	list-style-type:disc;
 }
 
 h1,
@@ -199,10 +206,6 @@ hr {
 	}
 }
 
-homepage{
-	background: var(--background);
-}
-
 .sr-only {
 	border: 0;
 	padding: 0;
@@ -235,4 +238,3 @@ h3 {
 h2 {
 	margin-bottom: 0.5em;
 } 
-
