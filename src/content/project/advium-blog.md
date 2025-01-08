@@ -7,7 +7,9 @@ demoLink: ""
 heroImage: ''
 rank: "2"
 tags:
-	- "nodejs"
+  - "astro"
+  - "markdown"
+  - "example"
 ---
 
 -  `LangChain` : Verify **"How much content is GPT generated ?"**  using LLM model. (*every blog should at least 60% human written* )

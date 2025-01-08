@@ -34,7 +34,4 @@ const project = defineCollection({
 	}),
 });
 
-console.log(project);
-
-
 export const collections = { blog, project };

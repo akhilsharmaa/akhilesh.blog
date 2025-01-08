@@ -7,7 +7,9 @@ demoLink: ""
 heroImage: ""
 rank: "1"
 tags:
-	- "nodejs"
+  - "astro"
+  - "markdown"
+  - "example"
 ---
 
 - Multiplayer Typing Game
