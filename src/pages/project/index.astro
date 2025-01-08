@@ -102,6 +102,10 @@ const posts = (await getCollection('project')).sort(
 									<Content />
 								</div>
 
+								{post.data.tags.map((tag:string) => {
+										<tag>{tag}</tag>
+								})}
+
 							</li>
 							<br>
 						  );
