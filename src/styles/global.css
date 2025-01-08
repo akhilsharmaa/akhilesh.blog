@@ -91,14 +91,19 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 21px;
-	line-height: 1.7;
+	font-size: 24px;
+	line-height: 2rem;
 }
 main { 
 	background: var(--background); 
 	margin: auto;
-	padding: 6rem;
+	padding: 3rem 6rem;
 }
+
+main p {  
+	width: 80%;
+}
+
 h1,
 h2,
 h3,
@@ -129,10 +134,13 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+    color: var(--accent);
+    text-decoration: underline;
 }
+
 a:hover {
-	color: var(--accent);
+    color: red;
+    text-decoration: underline;
 }
 p {
 	margin-bottom: 1em;
@@ -205,6 +213,13 @@ homepage{
 	white-space: nowrap;
 }
   
+.color-primary{
+	color: var(--accent);
+}
+
+highlight {
+	color: var(--accent);
+}
 
 /* Headings */
 h1,

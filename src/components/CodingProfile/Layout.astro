@@ -3,16 +3,12 @@ const today = new Date();
 const { highestRating, currentRating, badge, username, platform, plaform_logo_url} = Astro.props;
 ---
 
-<div class:list={['coding-profile-card', platform]} > 
-    <div class="flex m-auto w-max pt-2">
-        <img src={plaform_logo_url} alt="">
-        <h2 class="platform-text"> {platform}</h2>
-    </div>  
-    <hr class="h-px mb-2 bg-gray-200 border-0 dark:bg-gray-700">
-    <div class="ml-4 mb-2">
+<div class:list={['coding-profile-card', platform]} >   
+    <div class="mx-4 my-2">
+        <h4> <highlight> {platform} </highlight> </h4>
         <h4> <span class="item-context">Badge - </span>{badge}</h4> 
         <h4> <span class="item-context">Rating - </span> {highestRating}</h4>
-        <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>  
+        <!-- <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>   -->
         <h4> <span class="item-context">  @{username} </span></h4>
     </div>
 </div> 
@@ -28,29 +24,30 @@ const { highestRating, currentRating, badge, username, platform, plaform_logo_ur
     .coding-profile-card {
         background: white;
         width: 100%; 
-        border-radius: 4px;
+        border-radius: 2px;
         overflow: hidden;
-        border: 1px #5f5f5f solid;
+        border: 1px #e6e6e6 solid;
     }
 
     .Codeforces {
-        box-shadow: 0.25rem 0.25rem 0 #007e857f;
+        box-shadow: 0.25rem 0.25rem 0 #007e8536;
     }
 
     .Leetcode {
-        box-shadow: 0.25rem 0.25rem 0 #d1760071;
+        box-shadow: 0.25rem 0.25rem 0 #d1760031;
     }
 
     .Atcoder {
-        box-shadow: 0.25rem 0.25rem 0 #55555589;
+        box-shadow: 0.25rem 0.25rem 0 #55555521;
     }
 
     .coding-profile-card h4 { 
-        font-size: 1rem;
-        padding:  0 10px;
+        font-size: 1.1rem;
+        padding:  2px 0px 0px 1px;
         font-weight: 400;
-        margin: 0px;
+        margin: 0px; 
     }
+    
 
     .platform-text {
         font-size: 1rem;
