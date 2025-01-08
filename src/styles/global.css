@@ -193,6 +193,10 @@ hr {
 	main {
 		padding: 1em;
 	}
+
+	main p {  
+		width: 94%;
+	}
 }
 
 homepage{
