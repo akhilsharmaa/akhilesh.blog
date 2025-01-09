@@ -6,10 +6,7 @@ deploymentLink: "working on it"
 demoLink: ""
 heroImage: ''
 rank: "2"
-tags:
-  - "astro"
-  - "markdown"
-  - "example"
+tags: ["NodeJs", "Redis"] 
 ---
 
 - Added ‘caching’ to reduce database load and latency, significantly improving performance.

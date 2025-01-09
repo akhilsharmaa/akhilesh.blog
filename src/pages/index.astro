@@ -84,14 +84,21 @@ const projects = (await getCollection('project')).sort(
 						<p class="project-title">
 							{project.data.title}
 						</p>
-						<a class="deployment-link"
+						<h6 class="tex">
+							<a class="deployment-link"
 								href={project.data.deploymentLink}>
 									{project.data.deploymentLink}
-						</a> 
+							</a> 
+							{project.data.tags.map((tag)=> (
+								<tag class="text-sm">{tag}</tag>
+							))}
+						</h6> 
 						<p class="text-base project-decription"> 
 							{project.data.description}
+							<a href={`/project#${project.id}`}> 
+								view more... 
+							</a>
 						</p>
-						
 						<br>
 					</li>
 				))}

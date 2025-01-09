@@ -32,7 +32,7 @@ const posts = (await getCollection('project')).sort(
 				ul {
 					list-style-type: disc;
 					margin: 0;
-					padding-left: 4rem;
+					padding-left: 1rem;
 					padding-bottom: -1rem;
 				}
 
@@ -40,13 +40,12 @@ const posts = (await getCollection('project')).sort(
 					line-height: 1.6rem;
 				}
 			}
-			
+
 			.project-title{
 				margin: 0rem;
 			}
 
 			.deployment-link{
-				/* padding: 0px; */
 				border-radius: 4px;
 				text-underline-offset: 3px;
 				border: 1px solid var(--accent);
@@ -61,16 +60,6 @@ const posts = (await getCollection('project')).sort(
 				background-color: var(--accent);
 			}
 
-			tag{
-				padding-top: -5rem;
-				font-size: 1rem;
-				color: white;
-				background-color: var(--accent);
-				padding: 0.1rem .75rem;
-				margin:  0rem .5rem .5rem 0rem  ;
-				border-radius: 2rem;
-				border: 1px solid var(--accent);
-			}
 
 			@media (max-width: 720px) {
 				li{
@@ -106,7 +95,7 @@ const posts = (await getCollection('project')).sort(
 						  <hr>
 							<br>
 							
-							<li>
+							<li id={post.id}>
 								<div class="flex flex-wrap items-center justify-between ">
 									<h1 class="text-3xl project-title">{post.data.title}</h1> 
 									<div>
@@ -127,10 +116,9 @@ const posts = (await getCollection('project')).sort(
 									<Content />
 								</div>
 
-								{post.data.tags.map((tag:string) => {
-										<tag>{tag}</tag>
-								})}
-
+								{post.data.tags.map((tag)=> (
+									<tag class="text-xl">{tag}</tag>
+								))}
 							</li>
 							<br>
 						  );

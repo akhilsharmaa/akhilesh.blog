@@ -6,10 +6,7 @@ deploymentLink: "https://rockettyping.onrender.com/"
 demoLink: ""
 heroImage: ""
 rank: "1"
-tags:
-  - "astro"
-  - "markdown"
-  - "example"
+tags: ["NodeJs", "aws", "SocketIO"] 
 ---
 
 - Real-time typing game, where multiple players compete against each other, with live score updates

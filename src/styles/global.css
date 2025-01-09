@@ -238,3 +238,15 @@ h3 {
 h2 {
 	margin-bottom: 0.5em;
 } 
+
+
+tag{
+	font-family: 'Times New Roman', Times, serif;
+	color: rgb(0, 0, 0);
+	padding-top: -5rem;
+	background-color: #e8e8e8c1;
+	padding: 0.1rem .75rem;
+	margin:  0rem .5rem .5rem 0rem  ;
+	border-radius: 2rem;
+	/* border: 1px solid var(--accent); */
+}
