@@ -28,6 +28,7 @@ async function getContestDetails(username: string) {
 
                         // Extract data using Cheerio
                         const userInfo = {
+                                url: url, 
                                 badge: $("h3 b").text().trim() || "Not Found",
                                 currentRating:
                                         $('table.dl-table tr th:contains("Rating")')
@@ -47,6 +48,7 @@ async function getContestDetails(username: string) {
                                                 .next("td")
                                                 .text()
                                                 .trim() || "Fetching Failed",
+                                timeOfRequest:  new Date()
                         };
  
                         return userInfo;
@@ -70,6 +72,9 @@ function helpclean(str:string) {
 const username = 'akhilsharma'; 
 const data = await getContestDetails(username);;
 const badge =  data?.badge; 
+const url =    data?.url; 
+const timeOfRequest =   data?.timeOfRequest; 
+
 var currentRating:string =  data?.currentRating || 'Non'; 
 var highestRating:string =  data?.highestRating || "Non"; 
 
@@ -84,5 +89,7 @@ highestRating = helpclean(highestRating);
         badge={badge}
         currentRating={currentRating}
         plaform_logo_url="atcoder-logo.png"
+        url={url}
+        timeOfRequest={timeOfRequest}
         >
 </ProfileCard>

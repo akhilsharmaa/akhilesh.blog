@@ -1,0 +1,13 @@
+---
+import { timeAgo } from '../utils/timeAgo';
+
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+  {timeAgo(date)}
+</time>

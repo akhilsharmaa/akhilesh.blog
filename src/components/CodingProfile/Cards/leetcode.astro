@@ -1,6 +1,8 @@
 ---
 import ProfileLayout from '../../CodingProfile/Layout.astro';
+const url = "https://leetcode.com/u/akhilsharmaa/"
 
+const timeOfRequest =   new Date();
 ---
 
 <ProfileLayout  
@@ -10,4 +12,6 @@ import ProfileLayout from '../../CodingProfile/Layout.astro';
         badge={"None"}
         currentRating="1662"
         plaform_logo_url="leetcode-logo.png"
+        timeOfRequest={timeOfRequest}
+        url={url}
 />

@@ -20,6 +20,9 @@ async function getContestDetails(username: string) {
         }
         
         const result = await response.json(); 
+        result.result[0].url = `https://codeforces.com/profile/${username}`; 
+        result.result[0].timeOfRequest =  new Date();
+
         return result.result[0];
     });
         
@@ -33,7 +36,10 @@ const username = "akhilsharmaa"
 const data = await getContestDetails(username);     
 const highestRating = data.maxRating;
 const currentRating = data.rating;
+const url = data.url;
+const timeOfRequest = data.timeOfRequest;
 const badge = data.maxRank;
+
 ---
  
 <ProfileLayout  
@@ -43,4 +49,6 @@ const badge = data.maxRank;
         badge={badge}
         currentRating={currentRating}
         plaform_logo_url="codeforces-logo.jpg"
+        url={url}
+        timeOfRequest={timeOfRequest}
 </ProfileLayout>
