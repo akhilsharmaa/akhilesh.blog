@@ -3,7 +3,7 @@ title: "Run Ubuntu GUI inside Docker + VNC server setup"
 description: 'Run a ubuntu docker container & setup vnc server to a port for displaying & interacting through the screen in GUI .'
 pubDate: 'Dec 26 2024'
 # updatedDate: 'Jan 3 2024'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: ""
 ---
 
 Run a ubuntu docker container & setup vnc server to a port for displaying & interacting through the screen in GUI .

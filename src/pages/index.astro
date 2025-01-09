@@ -11,8 +11,12 @@ import { HighlightSpanKind } from 'typescript';
 import { getCollection } from 'astro:content'; 
 import FormattedDate from '../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
+const blogs = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const projects = (await getCollection('project')).sort(
+	(a, b) => b.data.rank.valueOf() - a.data.rank.valueOf(),
 );
 
 ---
@@ -62,7 +66,40 @@ const posts = (await getCollection('blog')).sort(
 				<br> 
 
 			</div>
+
+			<br>
+			<p>Some of the personal <highlight> Projects </highlight>
+				 that i have build are - </p>
+			
+			
+			<h4>Projects 
+				<a class="text-xl" href="">(github)</a>
+			</h4>
+			
+			<ul>
+				{projects.map((project) => (
+					<li>
+						<p class="project-title">
+							{project.data.title}
+							<sup>
+								<a href="#view">view details</a>
+							</sup>
+						</p>
+						<a class="deployment-link"
+								href={project.data.deploymentLink}>
+								{project.data.deploymentLink}
+						</a>
+						<p class="text-base project-decription"> 
+							{project.data.description}</p>
+							<sup class="text-sm ps color-primary date">
+							</sup>
+					</li>
+				))}
+			</ul>
+
 		</main>	  
+
+
 
 		<ImageCarosel />
 
@@ -71,20 +108,22 @@ const posts = (await getCollection('blog')).sort(
 			<p>Whenever, I get to know something new or interesting, I try to document it in the form of blogs.
 			   You can checkout some of the blogs that I have written -
 			</p>
-
 			<h4>Blogs</h4>
-			
 			<ul>
 				{
-					posts.map((post) => (
+					blogs.map((blog) => (
 						<li>
-							<a href={`/blog/${post.id}/`}>
-								<p class="blog-title">{post.data.title}</p>
+							<a href={`/blog/${blog.id}/`}>
+								<p class="blog-title">{blog.data.title}</p>
 							</a>
-							<p class="text-base blog-decription">  {post.data.description}</p>
-							<p class="text-sm date">
-								<FormattedDate date={post.data.pubDate} />
-							</p>
+							<p class="text-base blog-decription"> 
+								<span class="color-primary">
+									<FormattedDate date={blog.data.pubDate} />: 
+								</span>  
+								{blog.data.description}</p>
+							<sup class="text-sm ps color-primary date">
+								
+							</sup>
 						</li>
 					))
 				}
@@ -112,8 +151,29 @@ const posts = (await getCollection('blog')).sort(
 		}
 
 		.blog-title{
-			padding-top: 0;
-			margin: 0;
+			padding-top: 0px;
+			margin: 0px;
+		}
+
+		.project-title{ 
+			padding-bottom: -0px;
+			margin-bottom: -5px;
+		} 
+
+		.deployment-link{
+			/* padding: 0px; */
+			border-radius: 100px;
+			text-underline-offset: 3px;
+			border: 1px solid var(--accent);
+			color: var(--accent);
+			padding: 1px 10px;
+			font-size: 1rem;
+			text-decoration: none;
+
+		}
+
+		.blog-decription, .project-decription{
+			font-size: 1rem;
 		}
 
 		.profile-image{
