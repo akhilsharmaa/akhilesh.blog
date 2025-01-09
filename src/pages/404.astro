@@ -1,0 +1,99 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import ImageCarosel from '../components/ImageCarosel.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="">
+	<Header />		
+		<main>
+
+                <h2>404 : Page not found</h2>
+
+				<p>
+                    Maybe, the url you are trying access is changed or deleted. <span class="color-primary"> Redirecting </span>you to the home in 
+                    <span id="countdown" class="color-primary"></span>
+                </p>
+		</main>
+		<ImageCarosel />
+	<Footer />
+	</body>
+
+    <!-- JavaScript for the countdown and redirect -->
+    <script>
+        let counter = 5;
+        const countdownElement = document.getElementById("countdown");
+
+        // Initial text
+        countdownElement.textContent = `${counter} seconds...`;
+
+        const countdownInterval = setInterval(() => {
+        counter--;
+        // Update the text each second
+        countdownElement.textContent = `${counter} second${counter !== 1 ? 's' : ''}...`;
+
+        // When the counter hits 0, clear the interval and redirect
+        if (counter <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = "/";
+        }
+        }, 1000);
+    </script>
+    
+	<style>
+
+		@media (max-width: 768px) {
+			.homepage {
+				flex-direction: column;
+			}
+
+			#carousel-image{
+				height: 22rem;
+			}
+
+			.surname{
+				display: none;
+			}
+		}
+
+		.blog-title{
+			padding-top: 0px;
+			margin: 0px;
+		}
+
+		.project-title{ 
+			padding-bottom: -0px;
+			margin-bottom: -5px;
+		} 
+
+		.deployment-link{
+			/* padding: 0px; */
+			border-radius: 100px;
+			text-underline-offset: 3px;
+			border: 1px solid var(--accent);
+			color: var(--accent);
+			padding: 1px 10px;
+			font-size: 1rem;
+			text-decoration: none;
+
+		}
+
+		.blog-decription, .project-decription{
+			font-size: 1rem;
+		}
+
+		.profile-image{
+			width: 12rem;
+		}
+		
+
+	</style>
+	
+</html>
