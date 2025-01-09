@@ -2,7 +2,7 @@
 title: "Advium, AI-Bloging Platform"
 description: 'Blog platform utilizing NLP. It ensures content quality, scalability, and a seamless user experience while maintaining robust security.'
 codeLink: ""
-deploymentLink: "httpdemoac2awscom"
+deploymentLink: "working on it"
 demoLink: ""
 heroImage: ''
 rank: "2"

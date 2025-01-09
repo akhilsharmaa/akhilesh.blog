@@ -40,6 +40,26 @@ const posts = (await getCollection('project')).sort(
 					line-height: 1.6rem;
 				}
 			}
+			
+			.project-title{
+				margin: 0rem;
+			}
+
+			.deployment-link{
+				/* padding: 0px; */
+				border-radius: 4px;
+				text-underline-offset: 3px;
+				border: 1px solid var(--accent);
+				color: var(--accent);
+				padding: 1px 10px;
+				font-size: 1rem;
+				text-decoration: none;
+			}
+
+			.deployment-link:hover{
+				color: white;
+				background-color: var(--accent);
+			}
 
 			tag{
 				padding-top: -5rem;
@@ -88,13 +108,18 @@ const posts = (await getCollection('project')).sort(
 							
 							<li>
 								<div class="flex flex-wrap items-center justify-between ">
-									<h5>{post.data.title}</h5> 
+									<h1 class="text-3xl project-title">{post.data.title}</h1> 
 									<div>
 										(<a href={post.data.codeLink}>github</a>,
 										<a href={post.data.codeLink}>demo</a>) 
 									</div>
 								</div>
 
+								<a class="deployment-link"
+										href={post.data.deploymentLink}>
+											{post.data.deploymentLink}
+								</a> 
+								
 								<a href="post.data.codeLink"></a>
 								<p class="text-xl">{post.data.description}</p> 
 

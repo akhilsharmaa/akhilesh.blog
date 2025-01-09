@@ -16,7 +16,7 @@ const blogs = (await getCollection('blog')).sort(
 );
 
 const projects = (await getCollection('project')).sort(
-	(a, b) => b.data.rank.valueOf() - a.data.rank.valueOf(),
+	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
 );
 
 ---
@@ -72,27 +72,27 @@ const projects = (await getCollection('project')).sort(
 				 that i have build are - </p>
 			
 			
-			<h4>Projects 
+			<h4>
+				<a href="project">Projects</a> 
 				<a class="text-xl" href="">(github)</a>
 			</h4>
+			<br>
 			
 			<ul>
 				{projects.map((project) => (
 					<li>
 						<p class="project-title">
 							{project.data.title}
-							<sup>
-								<a href="#view">view details</a>
-							</sup>
 						</p>
 						<a class="deployment-link"
 								href={project.data.deploymentLink}>
-								{project.data.deploymentLink}
-						</a>
+									{project.data.deploymentLink}
+						</a> 
 						<p class="text-base project-decription"> 
-							{project.data.description}</p>
-							<sup class="text-sm ps color-primary date">
-							</sup>
+							{project.data.description}
+						</p>
+						
+						<br>
 					</li>
 				))}
 			</ul>
@@ -156,24 +156,20 @@ const projects = (await getCollection('project')).sort(
 		}
 
 		.project-title{ 
-			padding-bottom: -0px;
-			margin-bottom: -5px;
+			margin-top: -5px;
+			margin-bottom: 0px;
 		} 
 
 		.deployment-link{
 			/* padding: 0px; */
-			border-radius: 100px;
+			border-radius: 4px;
 			text-underline-offset: 3px;
 			border: 1px solid var(--accent);
 			color: var(--accent);
 			padding: 1px 10px;
+			margin-right: 0.5rem;
 			font-size: 1rem;
 			text-decoration: none;
-
-		}
-
-		.blog-decription, .project-decription{
-			font-size: 1rem;
 		}
 
 		.profile-image{
