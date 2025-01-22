@@ -20,7 +20,7 @@
 }
 @font-face {
 	font-family: 'RedHatDisplay';
-	src: url('/fonts/RedHatDisplay-Bold.ttf') format('ttf');
+	src: url('/fonts/RedHatDisplay-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -28,7 +28,7 @@
 
 @font-face {
 	font-family: 'PlayfairDisplay';
-	src: url('/fonts/PlayfairDisplay-Regular.ttf') format('ttf');
+	src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
 	font-family: 'PlayfairDisplay';
-	src: url('/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
+	src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -60,7 +60,7 @@
 
 @font-face {
 	font-family: 'EBGaramond';
-	src: url('/fonts/EBGaramond-Regular.ttf') format('ttf');
+	src: url('/fonts/EBGaramond-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -91,18 +91,14 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 24px;
-	line-height: 2rem;
+	font-size: 23px;
+	line-height: 34px;
 }
 
 main { 
 	background: var(--background); 
 	margin: auto;
 	padding: 3rem 6rem;
-}
-
-main p {  
-	width: 80%;
 }
 
 
@@ -200,10 +196,7 @@ hr {
 	main {
 		padding: 1em;
 	}
-
-	main p {  
-		width: 94%;
-	}
+ 
 }
 
 .sr-only {
@@ -241,7 +234,6 @@ h2 {
 
 
 tag{
-	font-family: 'Times New Roman', Times, serif;
 	color: rgb(0, 0, 0);
 	padding-top: -5rem;
 	background-color: #e8e8e8c1;

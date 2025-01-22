@@ -24,42 +24,45 @@ const projects = (await getCollection('project')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead 	title={"Akhilesh Kr Sharma / Personal Website"} 
+					description={SITE_DESCRIPTION} 
+				/>
 	</head>
 	<body class="">
 	<Header />		
 		<main>
-				<div class="flex flex-wrap items-center justify-between ">
-					<div class="md:w-3/4 w-full"> 
-						<p class="text-3xl"><span class="text-gray-600">Hey, I'm  </span><highlight >Akhilesh</highlight><span class="surname"> Kumar Sharma</span>.</p>
-						<p>Currently pursuing my <highlight> Bachelor's </highlight> degree in 
-								 Computer Science at the
-								   Heritage Institute of Technology, Kolkata,  
-								 with an expected graduation from 2022 to 
-								<highlight> 2026. </highlight> 			
-						</p> 
-					</div>
+				<div class="header-top  md:text-left text-center"> 
+					<p class="text-3xl"><span class="text-gray-600">Hey, I'm  </span>
+						<highlight >Akhilesh</highlight>
+						<span class="surname">Kumar Sharma.</span>
+					</p>
+					<p>Currently pursuing my <highlight> Bachelor's </highlight> degree in 
+						Computer Science at the
+					   	Heritage Institute of Technology, Kolkata,  
+					 	with an expected graduation from 2022 to 
+						<highlight> 2026. </highlight> 			
+					</p>  
 					<img src="./my-image.png" alt="Placeholder Image" class="profile-image" />
 				</div>
 
-				<hr class="h-px my-4 bg-gray-200 border-0">
+				<hr class="h-px my-5 bg-gray-100 border-0">
 
 				<p>
 					During summer vacation of 2024, 
-					I have joined <a href="https://lightspeedai.com/">LightSpeedAI Labs </a> as <highlight >  SDE Intern </highlight>  for 3 months 
+					I joined <a href="https://lightspeedai.com/">LightSpeedAI Labs </a> as <highlight >  SDE Intern </highlight>  for 3 months 
 					where I worked on  Web Scraping with Selenium, CI/CD pipelines, AWS, Terraform, ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
 				</p>
 
 				<br>
 
-				<p> I really enjoy solving  data-structure & algorithms  problems and, competing
-					in <highlight> competitive programming </highlight> contests . 
+				<p> I really enjoy solving   <highlight> data-structure & algorithms </highlight>  problems and, competing
+					in competitive programming contests . 
 					—it helps in improving my problem-solving skills. 
 				</p>
 
 				<div class="grid gap-4 md:grid-cols-3 lg:w-4/5 w-full">
-					<div><CodeForces /></div>
 					<div><Leetcode /></div>
+					<div><CodeForces /></div>
 					<div><Atcoder /></div>
 				</div>
 
@@ -81,10 +84,10 @@ const projects = (await getCollection('project')).sort(
 			<ul>
 				{projects.map((project) => (
 					<li>
-						<p class="project-title">
+						<p class="project-title text-3xl ">
 							{project.data.title}
 						</p>
-						<h6 class="tex">
+						<p class="mt-2 mb-1">
 							<a class="deployment-link"
 								href={project.data.deploymentLink}>
 									{project.data.deploymentLink}
@@ -92,11 +95,11 @@ const projects = (await getCollection('project')).sort(
 							{project.data.tags.map((tag)=> (
 								<tag class="text-sm">{tag}</tag>
 							))}
-						</h6> 
+						</p> 
 						<p class="text-base project-decription"> 
 							{project.data.description}
 							<a href={`/project#${project.id}`}> 
-								view more... 
+								expand..
 							</a>
 						</p>
 						<br>
@@ -137,13 +140,28 @@ const projects = (await getCollection('project')).sort(
 			</ul>
 
 		</main>	
-
 	<Footer />
 	</body>
 
 	<style>
 
+		.header-top{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+		
 		@media (max-width: 768px) {
+
+			.header-top{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				width: 100%;
+			}
+			
 			.homepage {
 				flex-direction: column;
 			}
@@ -173,7 +191,7 @@ const projects = (await getCollection('project')).sort(
 			text-underline-offset: 3px;
 			border: 1px solid var(--accent);
 			color: var(--accent);
-			padding: 1px 10px;
+			padding: 1px 8px;
 			margin-right: 0.5rem;
 			font-size: 1rem;
 			text-decoration: none;
@@ -181,8 +199,32 @@ const projects = (await getCollection('project')).sort(
 
 		.profile-image{
 			width: 12rem;
+			height: 12rem;
+			margin: 0;
+			padding: 0;
+			object-fit: cover;
+			right: 0rem;
+			border-radius: 100%;
 		}
 		
+
+		main p {  
+			width:  70%;
+		}
+
+		@media (max-width: 720px) {
+			body {
+				font-size: 18px; 
+				width: 100%; 
+			}
+			main {
+				padding: 1em;
+			}
+
+			main p {  
+				width: 94%;
+			}
+		}
 
 	</style>
 	

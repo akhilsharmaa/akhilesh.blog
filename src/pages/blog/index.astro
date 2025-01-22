@@ -18,8 +18,42 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style> 
+
+	<BaseHead title={"Blogs / Akhilesh Kr Sharma"} 
+			  description={SITE_DESCRIPTION} 
+		/>		
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+
+				<h3 class="color-primary">Blogs</h3>
+				<ul>
+					{
+						posts.map((post) => (
+							<hr>
+							<br>
+							<li>
+								<div class="flex flex-wrap items-center justify-between ">
+									<a href={`/blog/${post.id}`} > {post.data.title}</a> 
+									<div>
+										<a href={post.data.description}>github</a>
+									</div>
+								</div>
+								<p class="text-xl">{post.data.description}</p> 
+								<p class="text-xl"> <FormattedDate date={post.data.pubDate} /> </p> 
+							</li>
+							<br>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+
+	<style> 
 .project-content{
 				border: 1px #e0e0e0 solid;
 				border-radius: 4px;
@@ -67,34 +101,5 @@ const posts = (await getCollection('blog')).sort(
 				}
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
 
-				<h3 class="color-primary">Blogs</h3>
-				<ul>
-					{
-						posts.map((post) => (
-							<hr>
-							<br>
-							<li>
-								<div class="flex flex-wrap items-center justify-between ">
-									<a href={`/blog/${post.id}`} > {post.data.title}</a> 
-									<div>
-										<a href={post.data.description}>github</a>
-									</div>
-								</div>
-								<p class="text-xl">{post.data.description}</p> 
-								<p class="text-xl"> <FormattedDate date={post.data.pubDate} /> </p> 
-							</li>
-							<br>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
 </html>

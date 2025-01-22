@@ -28,17 +28,14 @@ import RelativeTime from '../RelativeTime.astro';
                 <a href={url} class="text-sm">  {url.substring(8)} </a>
             </p> 
         </div>
-        <p class="text-xs h-2 text-gray-400 w-full text-center"> Fetched Details  <RelativeTime date={timeOfRequest} ></RelativeTime></p> 
+        <p class="text-xs h-2 text-gray-400 w-full text-center"> Data fetched on - <FormattedDate date={timeOfRequest} /> </p> 
     </div>
 </div> 
 
 
 <style>
 
-
-    .profile-image{
-        width: 10rem;
-    }
+ 
 
     .coding-profile-card {
         background: white;
@@ -82,7 +79,7 @@ import RelativeTime from '../RelativeTime.astro';
     }
 
     .item-context{
-        color: #5f5f5f;
+        color: #3b3b3b;
     }
 
     .coding-profile-card img {
