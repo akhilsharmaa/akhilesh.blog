@@ -10,6 +10,7 @@ import ImageCarosel from '../components/ImageCarosel.astro';
 import { HighlightSpanKind } from 'typescript';
 import { getCollection } from 'astro:content'; 
 import FormattedDate from '../components/FormattedDate.astro';
+import { render } from 'astro:content';
 
 const blogs = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -72,41 +73,59 @@ const projects = (await getCollection('project')).sort(
 
 			<br>
 			<p>Some of the personal <highlight> Projects </highlight>
-				 that i have build are - </p>
+					available in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
 			
 			
-			<h4>
-				<a href="project">Projects</a> 
-				<a class="text-xl" href="">(github)</a>
-			</h4>
-			<br>
+				 <div class='flex i '>
+					<p class="text-4xl">
+						Projects
+						<sup>					
+							<a class="text-xl" href="project"> (view all) </a>
+						</sup>
+					</p> 
+				 </div>
 			
-			<ul>
-				{projects.map((project) => (
-					<li>
-						<p class="project-title text-3xl ">
+			<ul>{
+				projects.map(async (project) => {
+
+					const { Content } = await render(project);
+
+					return (<li>
+						<p class="mb-2 text-xl color-primary">
+							<FormattedDate date={project.data.pubDate} />
+						</p>
+
+						<p class="text-2xl m-0">
 							{project.data.title}
 						</p>
-						<p class="mt-2 mb-1">
+ 
+						<p class="mt-0 mb-0">
+							{ project.data.deploymentLink && 
 							<a class="deployment-link"
 								href={project.data.deploymentLink}>
 									{project.data.deploymentLink}
-							</a> 
+							</a>} 
+							
 							{project.data.tags.map((tag)=> (
 								<tag class="text-sm">{tag}</tag>
 							))}
-						</p> 
-						<p class="text-base project-decription"> 
+						</p>  
+
+						<p class="text-xl project-decription mt-2 mb-1"> 
 							{project.data.description}
 							<a href={`/project#${project.id}`}> 
-								expand..
+								...view more
 							</a>
 						</p>
-						<br>
-					</li>
-				))}
-			</ul>
+ 
 
+						<br>
+
+					</li>
+				)})
+				}
+			</ul>
+			
 		</main>	  
 
 
@@ -180,10 +199,25 @@ const projects = (await getCollection('project')).sort(
 			margin: 0px;
 		}
 
-		.project-title{ 
-			margin-top: -5px;
-			margin-bottom: 0px;
-		} 
+
+		.project-content{
+			border: 1px #e0e0e0 solid;
+			border-radius: 4px;
+			padding: 1rem 0;
+			margin-bottom: 1rem;
+			font-size: 1rem;
+			background-color: #fbfbfb;
+		}
+ 
+
+		li{
+			ul {
+				list-style-type: disc;
+				margin: 0;
+				padding-left: .75rem;
+				padding-bottom: -1rem;
+			} 
+		}
 
 		.deployment-link{
 			/* padding: 0px; */

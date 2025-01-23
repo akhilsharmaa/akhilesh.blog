@@ -1,6 +1,7 @@
 ---
-title: "Real Time Multiplayer Type Racing Game"
-description: 'This project is a Fastest Typing Multiplayer Game built using Node.js, Express, and Socket.IO. It allows multiple users to join a room, type messages, and interact in real-time.'
+title: "Multiplayer Type Racing Game"
+description: 'Typing Multiplayer Game built using Node.js, Express, and Socket.IO. It allows multiple users to join a room, type messages, and interact in real-time.'
+pubDate: 'Jan 20 2024'
 codeLink: ""
 deploymentLink: "https://rockettyping.onrender.com/"
 demoLink: ""

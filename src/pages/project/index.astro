@@ -107,8 +107,13 @@ const posts = (await getCollection('project')).sort(
 						  return (
 						  <hr>
 							<br>
-							
+
 							<li id={post.id}>
+
+								<p class="mb-2 text-xl color-primary">
+									<FormattedDate date={post.data.pubDate} />
+								</p> 
+
 								<div class="flex flex-wrap items-center justify-between ">
 									<h1 class="text-3xl project-title">{post.data.title}</h1> 
 									<div>
@@ -116,13 +121,16 @@ const posts = (await getCollection('project')).sort(
  									</div>
 								</div>
 
-								<a class="deployment-link"
-										href={post.data.deploymentLink}>
-											{post.data.deploymentLink}
-								</a> 
+								{
+									post.data.deploymentLink && 
+									<a class="deployment-link"
+											href={post.data.deploymentLink}>
+												{post.data.deploymentLink}
+									</a> 
+								}
 								
 								<a href="post.data.codeLink"></a>
-								<p class="text-xl">{post.data.description}</p> 
+								<p class="text-xl">{post.data.description}</p>  
 
 								<div class="project-content">
 									<Content />
@@ -130,8 +138,7 @@ const posts = (await getCollection('project')).sort(
 
 								{post.data.tags.map((tag)=> (
 									<tag class="text-xl">{tag}</tag>
-								))}
-
+								))} 
 
 								{post.data.demoLink && 
 								<div class="mt-10">

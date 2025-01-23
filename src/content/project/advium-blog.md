@@ -2,10 +2,11 @@
 title: "Advium, AI-Bloging Platform"
 description: 'Blog platform utilizing NLP. It ensures content quality, scalability, and a seamless user experience while maintaining robust security.'
 codeLink: ""
+pubDate: 'Dec 26 2024'
 deploymentLink: "working on it"
 demoLink: "https://youtu.be/d2ofxg8pHfQ?list=PLoucd8BluC9myPoSbPTDpEQse2Z08ZL-k"
 heroImage: ''
-rank: "2"
+rank: "1"
 tags: ["NodeJs", "Redis"] 
 ---
 
