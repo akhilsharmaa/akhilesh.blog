@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { render } from 'astro:content';
+import { YouTube } from 'astro-embed';
 
 const posts = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
@@ -41,7 +42,7 @@ const posts = (await getCollection('project')).sort(
 				}
 
 				li {
-					line-height: 1.6rem;
+					line-height: 1.7rem;
 				}
 			}
 
@@ -64,6 +65,14 @@ const posts = (await getCollection('project')).sort(
 				background-color: var(--accent);
 			}
 
+
+			.yt-embed{ 
+				max-width: 40rem;
+				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
+				border-radius: 10px; 	
+				margin: 2rem 1rem 1rem 1rem;
+			}
+ 
 
 			@media (max-width: 720px) {
 				li{
@@ -103,9 +112,8 @@ const posts = (await getCollection('project')).sort(
 								<div class="flex flex-wrap items-center justify-between ">
 									<h1 class="text-3xl project-title">{post.data.title}</h1> 
 									<div>
-										(<a href={post.data.codeLink}>github</a>,
-										<a href={post.data.codeLink}>demo</a>) 
-									</div>
+										 <a href={post.data.codeLink}>github</a>
+ 									</div>
 								</div>
 
 								<a class="deployment-link"
@@ -123,6 +131,13 @@ const posts = (await getCollection('project')).sort(
 								{post.data.tags.map((tag)=> (
 									<tag class="text-xl">{tag}</tag>
 								))}
+
+
+								{post.data.demoLink && 
+								<div class="mt-10">
+									<YouTube class="yt-embed" id={post.data.demoLink} /> 
+								</div>
+								}
 							</li>
 							<br>
 						  );
