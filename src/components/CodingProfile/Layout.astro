@@ -15,8 +15,8 @@ import RelativeTime from '../RelativeTime.astro';
 
 <div class:list={['coding-profile-card', platform]} >   
     <div class="mx-4 my-2">
-        <h4> <highlight> {platform} </highlight> </h4>
-        <h4> <span class="item-context">Rating - </span> {highestRating}</h4>
+        <h4> {platform} </h4>
+        <h4> <span class="item-context">Rating - </span> <highlight>{highestRating}  </highlight> </h4>
         <h4> <span class="item-context">Badge - </span>{badge}</h4> 
         <!-- <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>   -->
         <!-- ADD A DESCRIPTION DIV -->

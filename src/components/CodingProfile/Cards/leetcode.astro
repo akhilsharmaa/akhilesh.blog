@@ -1,15 +1,53 @@
 ---
 import ProfileLayout from '../../CodingProfile/Layout.astro';
-const url = "https://leetcode.com/u/akhilsharmaa/"
 
-const timeOfRequest =   new Date();
+import cached from 'cached'; 
+
+const cache = cached('cache');
+
+async function getContestDetails(username: string) {
+  try {
+
+    const url = "https://alfa-leetcode-api.onrender.com/akhilsharmaa/contest"; 
+
+    const result = cache.getOrElse((url), async () => {
+        console.log('Fetching/Scrapping detail from Leetcode...');  
+        
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const result = await response.json(); 
+        result.timeOfRequest =  new Date();
+        result.highestRating = result.contestRating;
+        result.contestBadges = result.contestBadges;
+        return result; 
+    });
+        
+    return result;
+  } catch (error) {
+    console.error("Failed to fetch contest details:", error);
+  }
+}
+
+const username = "akhilsharmaa"
+const data = await getContestDetails(username);     
+const highestRating = parseInt(data.highestRating, 10);
+const currentRating = data.rating;
+const url = `https://leetcode.com/u/${username}`
+const timeOfRequest = data.timeOfRequest;
+const badge = data.contestBadges;
+getContestDetails(username);
+
 ---
 
 <ProfileLayout  
         platform="Leetcode" 
         username="akhilsharmaa" 
-        highestRating="1662"
-        badge={"None"}
+        highestRating={highestRating}
+        badge={badge}
         currentRating="1662"
         plaform_logo_url="leetcode-logo.png"
         timeOfRequest={timeOfRequest}
