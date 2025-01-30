@@ -29,7 +29,7 @@ const project = defineCollection({
 		deploymentLink: z.string().optional(),
 		demoLink: z.string().optional(),
 		heroImage: z.string().optional(),
-		rank:  z.string(),
+		rank:  z.coerce.number(),
 		tags: z.array(z.string()).optional()
 	}),
 });

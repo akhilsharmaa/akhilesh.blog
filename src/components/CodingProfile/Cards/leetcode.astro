@@ -1,60 +1,55 @@
 ---
 import ProfileLayout from '../../CodingProfile/Layout.astro';
 
-import cached from 'cached'; 
+// import cached from 'cached'; 
+// const cache = cached('cache');
 
-const cache = cached('cache');
+// async function getContestDetails(username: string) {
+//   try {
+//     const url = "https://alfa-leetcode-api.onrender.com/akhilsharmaa/contest"; 
+//     const result = cache.getOrElse((url), async () => {
+//         console.log('Fetching/Scrapping detail from Leetcode...');  
+//         try {
+//           const response = await fetch(url);
+//           const result = await response.json(); 
 
-async function getContestDetails(username: string) {
-  try {
-
-    const url = "https://alfa-leetcode-api.onrender.com/akhilsharmaa/contest"; 
-
-    const result = cache.getOrElse((url), async () => {
-        console.log('Fetching/Scrapping detail from Leetcode...');  
-
-        try {
-
-          const response = await fetch(url);
-          const result = await response.json(); 
-
-          result.timeOfRequest =  new Date();
-          result.highestRating = result.contestRating;
-          result.contestBadges = result.contestBadges;
+//           result.timeOfRequest =  new Date();
+//           result.highestRating = result.contestRating;
+//           result.contestBadges = result.contestBadges;
           
-        } catch (error) {
+//         } catch (error) {
 
-          result.timeOfRequest =  new Date();
-          result.highestRating = "1678";
-          result.contestBadges = null;
-        }
+//           result.timeOfRequest =  new Date();
+//           result.highestRating = "1678";
+//           result.contestBadges = null;
+//         }
         
-        return result; 
-    });
+//         return result; 
+//     });
         
-    return result;
-  } catch (error) {
-    console.error("Failed to fetch contest details:", error);
-  }
-}
+//     return result;
+//   } catch (error) {
+//     console.error("Failed to fetch contest details:", error);
+//   }
+// }
 
 const username = "akhilsharmaa"
-const data = await getContestDetails(username);     
-const highestRating = parseInt(data.highestRating, 10);
-const currentRating = data.rating;
+// const data = await getContestDetails(username);     
+// const highestRating = parseInt(data.highestRating, 10);
+// const currentRating = data.rating;
 const url = `https://leetcode.com/u/${username}`
-const timeOfRequest = data.timeOfRequest;
-const badge = data.contestBadges;
-getContestDetails(username);
+const timeOfRequest =  new Date();
+// const badge = data.contestBadges;
+// // getContestDetails(username);
 
 ---
 
 <ProfileLayout  
         platform="Leetcode" 
-        username="akhilsharmaa" 
-        highestRating={highestRating}
-        badge={badge}
-        currentRating="1662"
+        username={username} 
+        highestRating={"1678"}
+        badge={""}
+        currentRating="1678"
         plaform_logo_url="leetcode-logo.png"
         timeOfRequest={timeOfRequest}
         url={url}
