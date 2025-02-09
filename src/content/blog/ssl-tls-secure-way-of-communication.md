@@ -74,5 +74,6 @@ For example - github webite have certificate of "Sectigo Limited".
 
 - there is also a public key, certificate and many more details.
 
-Thanks. For reading i hope you could gain some clarity.
- 
+---
+
+Thanks. For reading hoping you could gain some clarity. if you want to upvote this story this [medium blog.](https://medium.com/@akhilsharmaa/ssl-tls-the-secure-way-of-communication-bd1166ad0463?source=friends_link&sk=dfb780672c7f267a89320f5d5543dd6e). 
