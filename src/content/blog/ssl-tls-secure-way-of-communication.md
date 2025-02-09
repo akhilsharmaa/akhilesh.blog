@@ -6,8 +6,6 @@ pubDate: 'Feb 9 2025'
 heroImage: "https://whc.ca/wp-content/uploads/blog_15418_large.jpg"
 ---
 
-![https://whc.ca/wp-content/uploads/blog_15418_large.jpg]()
-
 In a communication over internet, what are things we need to know to trust that the the message?
 
 - **Authenticity:** Is the information is actually sent by the person who is supposed to be, (eg. can maybe the message is sent by someone else)
@@ -16,9 +14,8 @@ In a communication over internet, what are things we need to know to trust that 
 
 #### How can we solve these ? 
 Solving each problem, requires diffrent techniques…
-#### **Certificate--** 
-solves the Authenticity problem 
-#### **Encryption--** 
+##### **Certificate--** solves the Authenticity problem 
+##### **Encryption--** 
 Converting plain text to coded form (cipher text). 
 we are using simple algorithm to understand encryction. 
 **our encryption key: left shift charatcher by K place and mod with 26.**
@@ -46,15 +43,16 @@ In the process of decryption we can understand the difference between the symmet
 	- This is the way in which reversing the algorithm will not work in decrypting. 
 	- **DSA, RSA, ECC, ECDH** are the most common algorithm used in symetric algo. 
 
+---
 
-## HOW SSL/TLS WORKS ? 
+#### HOW SSL/TLS WORKS ? 
 
 Before understanding the SSL/TLS we need to know the basic concept of Keys. 
 In cryptography, every computer/host have there own unique keys 
 - **Public Key** - As name suggest this is a type of key which is visible to public, Anyone can view this and use this to encrypt/decrypt message. 
 - **Private Key** - This is secret key, not gonna share with anyone (the message encrypted by my key, can be only  decrypted by my public key - vise-versa). 
 
-### what is the role of SSL/TLS in client/Server network ? 
+#### What is the role of SSL/TLS in client/Server network ? 
 
 when server want to authenticate the users (vice-versa)
 - STEP 1: our (server website) will send it's public key to the browser (our client). 

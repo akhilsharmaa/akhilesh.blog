@@ -5,7 +5,7 @@
 	--gray: 96, 115, 159;
 	--background:  #ffffff;
 	--secondary-background:  #eaeaea;
-	--gray-light: 229, 233, 240;
+	--gray-light: #e5e5e5;
 	--gray-dark: 34, 41, 57;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
@@ -103,8 +103,12 @@ main {
 
 
 main li{
-	margin-left: 2rem;
+	margin-left: 3rem;
 	list-style-type:disc;
+}
+
+main p{
+	margin-bottom: 0rem;
 }
 
 h1,
@@ -112,29 +116,20 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-	margin: 0 0 0.5rem 0;
+h6{
+	margin: 1.75rem 0 1rem 0;
 	color: rgb(var(--black));
-	line-height: 1.2;
+	line-height: 1.25;
 }
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
+
+h1 {font-size: 3.052em;}
+h2 {font-size: 2.4m;}
+h3 {font-size: 1.9em;}
+h4 {font-size: 1.5em;}
+h5 {font-size: 1.2em;}
+
+strong,b {
+	font-weight: 800;
 }
 a {
     color: var(--accent);
@@ -149,7 +144,7 @@ p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1rem;
 }
 textarea {
 	width: 100%;
@@ -167,13 +162,16 @@ img {
 	border-radius: 8px;
 }
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	padding: 2px 8px;
+	background-color: var(--gray-light);
 	border-radius: 5px;
+	font-size: 0.9em;
 }
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+	padding: 1rem 2rem;
+	font-size: 1rem;
+	border-radius: 4px;
+	margin-bottom: 1rem;
 }	
 pre > code {
 	all: unset;
@@ -220,18 +218,6 @@ hr {
 highlight {
 	color: var(--accent);
 }
-
-/* Headings */
-h1,
-h2,
-h3 {
-	margin-top: 0;
-}
-
-h2 {
-	margin-bottom: 0.5em;
-} 
-
 
 tag{
 	color: rgb(0, 0, 0);
