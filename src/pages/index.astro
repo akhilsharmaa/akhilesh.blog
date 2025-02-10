@@ -32,32 +32,33 @@ const projects = (await getCollection('project')).sort(
 	<Header />		
 		<main>
 				<div class="header-top  md:text-left text-center"> 
-					<p class="text-3xl"><span class="text-gray-600">Hey, I'm  </span>
-						<highlight >Akhilesh</highlight>
-						<span class="surname">Kumar Sharma.</span>
-					</p>
-					<p>Currently pursuing my <highlight> Bachelor's </highlight>  in 
-						Computer Science at
-					   	Heritage Institute of Technology, Kolkata,  
+
+					<h4 class="pb-10 slogan italic">Developer / Student / Tinkerer</h4>
+					<br>
+					<p>Currently pursuing bachelor's  in 
+						computer science 
+						at	Heritage, Kolkata,  
 					 	from 2022 to <highlight> 2026. </highlight> 			
 					</p>  
 
 					<p>
-						During summer of 2024, 
-						I joined 
+						During summer of 2024, I joined  
 						<a href="https://www.faralpha.com/">@Faralpha Technology</a>
-						 as
-						 <span class="circle-sketch-highlight"> SDE Intern</span>  for 3 months, 
-						where I worked on  Web Scraping, Selenium, CI/CD pipelines, AWS, Terraform, ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
+						<br>
+						 as <span class="circle-sketch-highlight"> SDE Intern</span>  for 3 months, 
+						where I worked on  Web Scraping, Selenium, CI/CD pipelines, AWS, Terraform, 
+						ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
 					</p>
 
-					<img src="./my-image.png" alt="Placeholder Image" class="profile-image" />
+					<img src="https://media.licdn.com/dms/image/v2/D4D03AQG2KhmaqXmejQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730108595371?e=1744848000&v=beta&t=u5EmcSxggm6pQcz565BswXYrpJrTnUx3hnHHb72XwEU" alt="Placeholder Image" class="profile-image" />
 			</div>
 
 
 				<p> I enjoy solving  <highlight> data-structure & algorithms </highlight> problems. 
 					—it helps in improving my problem-solving skills. 
 				</p>
+				
+				<br>
 
 				<div class="grid gap-4 md:grid-cols-3 lg:w-4/6 w-full">
 					<div><Leetcode /></div>
@@ -75,12 +76,12 @@ const projects = (await getCollection('project')).sort(
 			
 			
 				 <div class='flex i '>
-					<p class="text-4xl">
+					<h4 class="text-4xl">
 						Projects
 						<sup>					
 							<a class="text-xl" href="project"> (view all) </a>
 						</sup>
-					</p> 
+					</h4> 
 				 </div>
 			
 			<ul>{
@@ -135,22 +136,20 @@ const projects = (await getCollection('project')).sort(
 			<p>Whenever, I get to know something new or interesting, I try to document it in the form of blogs.
 			   You can checkout some of the blogs that I have written -
 			</p>
-			<h4>Blogs</h4>
+			<h4>Blog posts </h4>
 			<ul>
 				{
 					blogs.map((blog) => (
-						<li>
+						<li class="pb-4">
+							<p class="mb-0 text-gray-500 text-xl">
+								<FormattedDate date={blog.data.pubDate} />
+							</p>
 							<a href={`/blog/${blog.id}/`}>
-								<p class="blog-title">{blog.data.title}</p>
+								<span class="text-2xl">{blog.data.title}</span>
 							</a>
 							<p class="text-base blog-decription"> 
-								<span class="color-primary">
-									<FormattedDate date={blog.data.pubDate} />: 
-								</span>  
-								{blog.data.description}</p>
-							<sup class="text-sm ps color-primary date">
-								
-							</sup>
+								— {blog.data.description}
+							</p>
 						</li>
 					))
 				}
@@ -195,12 +194,6 @@ const projects = (await getCollection('project')).sort(
 			}
 		}
 
-		.blog-title{
-			padding-top: 0px;
-			margin: 0px;
-		}
-
-
 		.project-content{
 			border: 1px #e0e0e0 solid;
 			border-radius: 4px;
@@ -231,13 +224,14 @@ const projects = (await getCollection('project')).sort(
 			font-size: 1rem;
 			text-decoration: none;
 		}
-
+		
 		.profile-image{
-			width: 12rem;
-			height: 12rem;
+			width: 14rem;
+			height: 14rem;
 			margin: 0;
 			padding: 0;
 			object-fit: cover;
+			filter: grayscale(100%);
 			right: 0rem;
 			border-radius: 100%;
 		}

@@ -28,23 +28,25 @@ const posts = (await getCollection('blog')).sort(
 		<main>
 			<section>
 
-				<h3 class="color-primary">Blogs</h3>
+
+				<p class="text-5xl text-neutral-950">Blog posts</p>
+				<p>This page lists some of my personal projects, also available on <a href="https://github.com/akhilsharmaa">Github</a>.</p>
+
+				<hr>
 				<ul>
 					{
 						posts.map((post) => (
-							<hr>
-							<br>
 							<li>
+								<p class="text-xl"> <FormattedDate date={post.data.pubDate} /> </p> 
 								<div class="flex flex-wrap items-center justify-between ">
 									<a href={`/blog/${post.id}`} > {post.data.title}</a> 
 									<div>
-										<a href={post.data.description}>github</a>
+										{/* <a href={post.data.description}>github</a> */}
 									</div>
 								</div>
 								<p class="text-xl">{post.data.description}</p> 
-								<p class="text-xl"> <FormattedDate date={post.data.pubDate} /> </p> 
+								<br>
 							</li>
-							<br>
 						))
 					}
 				</ul>

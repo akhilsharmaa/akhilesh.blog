@@ -94,8 +94,8 @@ const posts = (await getCollection('project')).sort(
 		<Header />
 		<main>
 			<section>
-				<h3 class="color-primary">Projects</h3>
-
+				<p class="text-5xl text-neutral-950">Personal projects</p>
+				<p>This page lists some of my personal projects, also available on <a href="https://github.com/akhilsharmaa">Github</a>.</p>
 
 				<ul>
 					{
@@ -106,13 +106,11 @@ const posts = (await getCollection('project')).sort(
 						  // Then return your UI
 						  return (
 						  <hr>
-							<br>
 
 							<li id={post.id}>
-
 								<p class="mb-2 text-xl color-primary">
 									<FormattedDate date={post.data.pubDate} />
-								</p> 
+								</p>
 
 								<div class="flex flex-wrap items-center justify-between ">
 									<h1 class="text-3xl project-title">{post.data.title}</h1> 
@@ -136,7 +134,7 @@ const posts = (await getCollection('project')).sort(
 									<Content />
 								</div>
 
-								{post.data.tags.map((tag)=> (
+								{post.data.tags && post.data.tags.map((tag)=> (
 									<tag class="text-xl">{tag}</tag>
 								))} 
 
