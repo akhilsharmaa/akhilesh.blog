@@ -7,9 +7,9 @@ import { SITE_TITLE } from '../consts';
 	<main>
 	<nav>
 		<div class="p-0 m-0 flex items-center justify-center ">
-			<img class="nav-logo" src="akhil-penguin-logo.png" alt="">
-			<a class="nav-logo-text" href="/">{SITE_TITLE}</a>
-		  </div>
+			<!-- <img class="nav-logo" src="akhil-penguin-logo.png" alt=""> -->
+			<a class="nav-logo-text text-4xl" href="/">{SITE_TITLE}</a>
+		</div>
 		<div class="navlink">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/project">Projects</HeaderLink>
@@ -41,7 +41,7 @@ import { SITE_TITLE } from '../consts';
 		justify-content: space-between; 
 	}
 	nav a {
-		padding: 1em 0.5em;
+		padding: 1em 1.5em 0 0 ;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
@@ -65,11 +65,8 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	.nav-logo-text{
-		font-family: 'BarlowCondensed', 'Times New Roman', Times, serif;
+		font-family: 'FunnelDisplay', 'Times New Roman', Times, serif;
 		font-weight: 700;
-		font-size: 30px;
-		margin-bottom: -5px;
-		line-height: 0;
 	}
 
 	.color-primary{
@@ -86,12 +83,7 @@ import { SITE_TITLE } from '../consts';
 		}
 
 		nav {
-			padding:  1rem 1rem;
 			justify-content: space-between;
-		}
-		
-		.nav-logo-text{
-			font-size: 20px;
 		}
 	}
 </style>
