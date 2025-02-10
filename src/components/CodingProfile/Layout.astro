@@ -20,12 +20,10 @@ import RelativeTime from '../RelativeTime.astro';
         <h4> <span class="item-context">Badge - </span>{badge}</h4> 
         <!-- <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>   -->
         <!-- ADD A DESCRIPTION DIV -->
-        <div class="description text-sm ">
+        <div class="description text-sm">
             <hr class="mb-2">
            <p class="w-full"> 
-                <img class="inline" src="link.svg" alt=""> 
-                Profile Link: 
-                <a href={url} class="text-sm">  {url.substring(8)} </a>
+                <a href={url} class="text-sm">Profile Link</a>
             </p> 
         </div>
         <p class="text-xs h-2 text-gray-400 w-full text-center"> Data fetched on - <FormattedDate date={timeOfRequest} /> </p> 
