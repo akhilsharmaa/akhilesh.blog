@@ -213,7 +213,13 @@ hr {
 	main {
 		padding: 1em;
 	}
- 
+
+	main li{
+		margin-left: 0rem;
+		list-style-type:disc;
+	}
+
+
 }
 
 .sr-only {
