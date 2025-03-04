@@ -13,6 +13,7 @@
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
+    "@vercel/analytics": "^1.5.0",
     "astro": "^5.1.2",
     "astro-embed": "^0.9.0",
     "cached": "^6.1.0",
