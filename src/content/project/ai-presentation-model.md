@@ -1,5 +1,5 @@
 ---
-title: "RAG AI Based Presentation Creator"
+title: "LLM Based Presentation Creator"
 description: 'Generating the whole presentation with 10-15 pages just by giving title of the topic.'
 codeLink: ""
 pubDate: 'Jan 30 2025'
