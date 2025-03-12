@@ -6,7 +6,7 @@ repoName: "openwisp-radius"
 repoLink: "https://github.com/openwisp/openwisp-radius/"
 orgLabels: ["Python", "Django", "OpenWRT"] 
 
-prTitle: "[fix] Handle importing UTF-16 encoded CSV files"
+prTitle: "[fix] Handle importing UTF-16 encoded CSV files,  Unit Tests"
 prNumber: "#568"
 prStatus: "Merged"
 prDescription: ""

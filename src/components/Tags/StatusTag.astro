@@ -3,18 +3,19 @@ const { status } = Astro.props;
 
 let statusIconUrl = "black";
 let backgroundColor =  "#bbbbbb";
-let borderColor =  "#bbbbbb";
+let borderColor =  "#8d23d344";
 
 switch (status) {
-    case "open":
-        statusIconUrl = "https://cdn-icons-png.flaticon.com/512/8025/8025069.png";  
-        backgroundColor =  "#00ff00";
-
+    case "Open":
+        statusIconUrl = "https://icons.veryicon.com/png/o/miscellaneous/decon/wait-4.png";
+        backgroundColor =  "#127F42";
+        borderColor =  "#0BC90B40";
         break;
     
     case "Merged":
         statusIconUrl = "https://cdn.iconscout.com/icon/premium/png-256-thumb/git-merge-10123341-8863137.png";  
         backgroundColor =  "#af2dfa";
+        borderColor =  "#8d23d354";
         break;
 
     default:
@@ -28,7 +29,7 @@ switch (status) {
 
 <style define:vars={{backgroundColor, borderColor }}> 
     img {  
-        width: 20px;
+        width: 16px;
         margin-right: 4px;
         display: inline-flex;
     }
@@ -45,6 +46,6 @@ switch (status) {
         height: 1.5rem;
         display: inline-flex;
         align-items: center;
-        border: 2px solid #8d23d344; 
+        border: 2px solid var(--borderColor); 
     }
 </style>

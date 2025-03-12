@@ -25,6 +25,10 @@ const projects = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
 );
 
+const getshortDescription = (description:string) => {
+	return description.length > 60 ? description.substring(0, 60) + "..." : description;
+}
+
 ---
 
 <!doctype html>
@@ -72,7 +76,7 @@ const projects = (await getCollection('project')).sort(
 									{pull_request.data.prNumber}
 								</a>
 								
-								—{pull_request.data.prTitle}  
+								—{pull_request.data.prTitle && getshortDescription(pull_request.data.prTitle)}  
 
 								{pull_request.data.prLabels && 
 										pull_request.data.prLabels.map((tag)=> (
@@ -84,11 +88,9 @@ const projects = (await getCollection('project')).sort(
 							<p>
 								<StatusTag status={pull_request.data.prStatus} /> 
 
-
 								<OrgTag
 									link={pull_request.data.orgLink} 
 									title={pull_request.data.orgName}
-									imgUrl="https://avatars.githubusercontent.com/u/1150243?v=4"}
 								/> 
 
 								<GithubTag 
