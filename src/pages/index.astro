@@ -55,7 +55,7 @@ const projects = (await getCollection('project')).sort(
 						ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
 					</p>
 
-					<img src="https://media.licdn.com/dms/image/v2/D4D03AQG2KhmaqXmejQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730108595371?e=1744848000&v=beta&t=u5EmcSxggm6pQcz565BswXYrpJrTnUx3hnHHb72XwEU" alt="Placeholder Image" class="profile-image" />
+					<img src="assets/profile.png" alt="Placeholder Image" class="profile-image" />
 			</div>
 
 				<p>
@@ -67,7 +67,7 @@ const projects = (await getCollection('project')).sort(
 					pull_requests.map(async (pull_request) => {
 
 						return (<li>
-							<h4 class="text-xl project-decription mt-2 mb-1">  
+							<h5 class="text-xl text-gray-600 project-decription mt-2 mb-1">  
 								<a href={pull_request.data.prLink}>
 									{pull_request.data.prNumber}
 								</a>
@@ -79,7 +79,7 @@ const projects = (await getCollection('project')).sort(
 										<tag class="text-sm">{tag}</tag>
 								))}
 
-							</h4> 
+							</h5> 
 
 							<p>
 								<StatusTag status={pull_request.data.prStatus} /> 
