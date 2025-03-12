@@ -1,0 +1,50 @@
+---
+const { status } = Astro.props;
+
+let statusIconUrl = "black";
+let backgroundColor =  "#bbbbbb";
+let borderColor =  "#bbbbbb";
+
+switch (status) {
+    case "open":
+        statusIconUrl = "https://cdn-icons-png.flaticon.com/512/8025/8025069.png";  
+        backgroundColor =  "#00ff00";
+
+        break;
+    
+    case "Merged":
+        statusIconUrl = "https://cdn.iconscout.com/icon/premium/png-256-thumb/git-merge-10123341-8863137.png";  
+        backgroundColor =  "#af2dfa";
+        break;
+
+    default:
+        break;
+}
+---
+<span class="tags">  
+    <img src={statusIconUrl} alt="">
+    <a>{status}</a>
+</span>
+
+<style define:vars={{backgroundColor, borderColor }}> 
+    img {  
+        width: 20px;
+        margin-right: 4px;
+        display: inline-flex;
+    }
+
+    a { 
+        text-decoration: none;
+        font-size: 1rem;
+        color: var(--backgroundColor);
+    }
+
+    .tags {  
+        border-radius: 100px;
+        padding: 0rem .75rem 0 0.5rem; 
+        height: 1.5rem;
+        display: inline-flex;
+        align-items: center;
+        border: 2px solid #8d23d344; 
+    }
+</style>

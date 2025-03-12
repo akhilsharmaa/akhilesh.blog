@@ -10,10 +10,16 @@ import ImageCarosel from '../components/ImageCarosel.astro';
 import { getCollection } from 'astro:content'; 
 import FormattedDate from '../components/FormattedDate.astro';
 import { render } from 'astro:content';
+import GithubTag from '../components/Tags/GithubTag.astro';
+import OrgTag from '../components/Tags/OrgTag.astro';
+import StatusTag from '../components/Tags/StatusTag.astro';
 
 const blogs = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+
+const pull_requests = await getCollection('pull_request');
 
 const projects = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
@@ -52,9 +58,58 @@ const projects = (await getCollection('project')).sort(
 					<img src="https://media.licdn.com/dms/image/v2/D4D03AQG2KhmaqXmejQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730108595371?e=1744848000&v=beta&t=u5EmcSxggm6pQcz565BswXYrpJrTnUx3hnHHb72XwEU" alt="Placeholder Image" class="profile-image" />
 			</div>
 
+				<p>
+					I contribute to <highlight> open-source </highlight> projects, 
+					—creating real impact, some of my top contributions are: 
+				</p>
+
+				<ul>{
+					pull_requests.map(async (pull_request) => {
+
+						return (<li>
+							<h4 class="text-xl project-decription mt-2 mb-1">  
+								<a href={pull_request.data.prLink}>
+									{pull_request.data.prNumber}
+								</a>
+								
+								—{pull_request.data.prTitle}  
+
+								{pull_request.data.prLabels && 
+										pull_request.data.prLabels.map((tag)=> (
+										<tag class="text-sm">{tag}</tag>
+								))}
+
+							</h4> 
+
+							<p>
+								<StatusTag status={pull_request.data.prStatus} /> 
 
 
-				<p> I enjoy solving  data-structure & algorithms problems. 
+								<OrgTag
+									link={pull_request.data.orgLink} 
+									title={pull_request.data.orgName}
+									imgUrl="https://avatars.githubusercontent.com/u/1150243?v=4"}
+								/> 
+
+								<GithubTag 
+									link={pull_request.data.repoLink} 
+									title={pull_request.data.repoName}
+								/> 
+								
+								<br>
+
+							</p>  
+
+
+						</li>
+					)})
+					}
+				</ul>
+
+			</div>
+
+			<br>
+			<p> I enjoy solving  data-structure & algorithms problems. 
 					—it helps in improving my problem-solving skills. 
 				</p>
 				
@@ -66,24 +121,20 @@ const projects = (await getCollection('project')).sort(
 					<div><Atcoder /></div>
 				</div>
 
-				<br> 
-
-			</div>
-
+				<br>  
 			<br>
-			<p>Some of the personal <highlight> Projects </highlight>
-					available in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
-			
-			
 				 <div class='flex i '>
 					<h4 class="text-4xl">
-						Projects
+						Persnal Projects
 						<sup>					
 							<a class="text-xl" href="project"> (view all) </a>
 						</sup>
 					</h4> 
 				 </div>
 			
+				 <p>Some of the personal <highlight> Projects </highlight>
+					available in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
+					
 			<ul>{
 				projects.map(async (project) => {
 

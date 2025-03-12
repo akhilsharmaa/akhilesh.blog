@@ -1,0 +1,42 @@
+--- 
+const { title, link, imgUrl } = Astro.props;
+---
+
+<span class="tags">
+	<img src={imgUrl} alt="">
+    <a href={link}>{title}</a>
+</span>
+
+<style>
+    img { 
+        width: 20px;
+        margin-right: 5px;
+        display: inline-flex;
+    }
+
+    a { 
+        text-decoration: none;
+        font-size: 1rem;
+        color: rgb(0, 0, 0);
+    }
+
+    .tags {
+        background-color: #ff48003b; 
+        border-radius: 100px;
+        padding: 0rem .5rem 0 0.35rem; 
+        height: 1.5rem;
+        display: inline-flex;
+        align-items: center; 
+        border: 2px solid #ff4a02;
+    }
+
+    .tags:hover {
+        background-color: #ff4a02;
+    }
+
+
+    a:hover {  
+        color: #ffffff;
+    }
+
+</style>
