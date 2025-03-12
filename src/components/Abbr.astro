@@ -1,0 +1,42 @@
+--- 
+const { title, description, showLogo=true } = Astro.props;
+---
+<abbr title={description}>
+    {title}
+    {showLogo === true && <img class="attr-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-information-icon-download-in-svg-png-gif-file-formats--notice-info-ui-google-material-vol-2-pack-user-interface-icons-30515.png" alt="" />}
+</abbr>
+
+<style>
+    abbr {
+        position: relative;
+        color: #ff3300;
+        text-decoration: none;
+    }
+
+    abbr:hover::after {
+        background: #ff3300d1;
+        border-radius: 4px;
+        color: white;
+        font-size: 1rem;
+        bottom: 100%;
+        content: attr(title);
+        display: block;
+        left: 100%;
+        padding: 1em;
+        position: absolute;    
+        line-height: 1.2;
+        width: 20rem;
+        z-index: 1;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .attr-icon{
+        left: 0;
+        margin-left: -5px;
+        margin-bottom: 15px;
+        width: 12px;
+        height: 12px;
+        display: inline;
+        filter: invert(49%) sepia(83%) saturate(2911%) hue-rotate(1deg) brightness(96%) contrast(102%);
+    }
+</style>

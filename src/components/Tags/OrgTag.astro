@@ -1,5 +1,7 @@
 --- 
-const { title, link } = Astro.props;
+import Abbr from '../Abbr.astro'
+
+const { title, link, description } = Astro.props;
 
 let imgUrl = "";
 
@@ -13,7 +15,13 @@ if(title === 'OpenWISP'){
 
 <span class="tags">
 	<img src={imgUrl} alt="">
-    <a href={link}>{title}</a>
+    <a href={link}>
+        <Abbr 
+            title={title} 
+            description={description}
+            showLogo=false
+        />
+    </a>
 </span>
 
 <style>
@@ -31,19 +39,18 @@ if(title === 'OpenWISP'){
     }
 
     .tags {
-        background-color: #ff48003b; 
+        background-color: #0000000e;
         border-radius: 100px;
         padding: 0rem .5rem 0 0.35rem; 
         height: 1.5rem;
         display: inline-flex;
         align-items: center; 
-        border: 2px solid #ff4a02;
+        border: 2px solid #ff7d498a;
     }
 
     .tags:hover {
-        background-color: #ff4a02;
+        background-color: #ffffff7e;
     }
-
 
     a:hover {  
         color: #ffffff;
