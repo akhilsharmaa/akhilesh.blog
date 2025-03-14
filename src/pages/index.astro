@@ -35,7 +35,7 @@ const getshortDescription = (description:string) => {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead 	title={"Akhilesh Kr Sharma / Personal Website"} 
+		<BaseHead 	title={"Akhilesh Kumar Sharma"} 
 					description={SITE_DESCRIPTION} 
 				/>
 	</head>
@@ -47,9 +47,13 @@ const getshortDescription = (description:string) => {
 					<h4 class="pb-10 slogan italic">Developer / Tinkerer / Student</h4>
 					<br>
 					<p>Currently pursuing bachelor's  in 
-						computer science 
-						at	Heritage, Kolkata,  
-					 	from 2022—2026.
+						computer science at
+						<Abbr
+							title="Heritage,"
+							description="Hertage Institute of Technology, Kolkata \n \t Go to https://www.heritageit.edu/"
+							showLogo=false
+						/> 
+						,Kolkata,  from 2022—2026.
 					</p>  
 
 					<p>
@@ -57,6 +61,7 @@ const getshortDescription = (description:string) => {
 						<Abbr
 							title="@FarAlpha"
 							description="FarAlpha Technologies, Delhi https://www.faralpha.com/"
+							showLogo=false
 						/>
 						 as <span class="circle-sketch-highlight"> SDE Intern</span>  for 3 months, 
 						where I worked on CI/CD pipelines, AWS, Terraform,  Web Scraping, Selenium, 

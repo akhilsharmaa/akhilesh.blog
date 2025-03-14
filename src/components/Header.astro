@@ -11,9 +11,9 @@ import { SITE_TITLE } from '../consts';
 			<a class="nav-logo-text text-4xl" href="/">{SITE_TITLE}</a>
 		</div>
 		<div class="navlink">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/project">Projects</HeaderLink>
-			<HeaderLink href="/blog">Blogs</HeaderLink>
+			<HeaderLink class="mx-4" href="/">Home</HeaderLink>
+			<HeaderLink class="mx-4" href="/project">Projects</HeaderLink>
+			<HeaderLink class="mx-4" href="/blog">Blogs</HeaderLink>
 		</div>
 	</nav>
 	</main>
@@ -41,7 +41,6 @@ import { SITE_TITLE } from '../consts';
 		justify-content: space-between; 
 	}
 	nav a {
-		padding: 1em 1.5em 0 0 ;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
@@ -83,7 +82,9 @@ import { SITE_TITLE } from '../consts';
 		}
 
 		nav {
+			margin-top: 0rem;
 			justify-content: space-between;
+			border-bottom: 1px solid #00000031;
 		}
 	}
 </style>
