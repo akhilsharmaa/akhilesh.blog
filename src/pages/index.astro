@@ -44,8 +44,8 @@ const getshortDescription = (description:string) => {
 		<main>
 				<div class="header-top  md:text-left text-center"> 
 
-					<h4 class="pb-10 slogan italic">Developer / Tinkerer / Student</h4>
-					<br>
+					<p class="pb-8 sm:text-4xl text-3xl  slogan italic">Developer / Tinkerer / Student</p>
+
 					<p>Currently pursuing bachelor's  in 
 						computer science at
 						<Abbr
@@ -53,7 +53,7 @@ const getshortDescription = (description:string) => {
 							description="Hertage Institute of Technology, Kolkata \n \t Go to https://www.heritageit.edu/"
 							showLogo=false
 						/> 
-						,Kolkata,  from 2022—2026.
+						,Kolkata, from 2022—2026.
 					</p>  
 
 					<p>
@@ -68,7 +68,9 @@ const getshortDescription = (description:string) => {
 						ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
 					</p>
 
-					<img src="assets/profile.png" alt="Placeholder Image" class="profile-image" />
+					<img src="assets/profile.png" 
+						alt="Placeholder Image" 
+						class="profile-image" />
 			</div>
 
 				<p>
@@ -291,7 +293,8 @@ const getshortDescription = (description:string) => {
 		.profile-image{
 			width: 14rem;
 			height: 14rem;
-			margin: 0;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
 			padding: 0;
 			object-fit: cover;
 			filter: grayscale(100%);
