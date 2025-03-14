@@ -104,7 +104,6 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 23px;
 	line-height: 34px;
 }
 
@@ -121,6 +120,7 @@ main li{
 }
 
 main p{
+	font-size: 1.4rem;
 	margin-bottom: 1rem;
 }
 
@@ -207,7 +207,7 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 18px; 
+		font-size: 22px; 
 		width: 100%; 
 	}
 	main {

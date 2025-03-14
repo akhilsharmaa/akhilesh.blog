@@ -58,10 +58,18 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
-					<p class="text-2xl text-gray-500 mb-4"> 
-						<FormattedDate date={pubDate} />
-					</p> 
 					<br>
+
+
+					<div class="prose">
+						<p class="md:text-4xl text-3xl">
+							{title}
+						</p>
+						<p class="text-2xl text-gray-500 mb-4"> 
+							<FormattedDate date={pubDate} />
+						</p> 
+					<br>
+
 					{
 						updatedDate && (
 							<div class="last-updated-on">
@@ -70,20 +78,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						)
 					}
 
-					<div class="prose">
-						<p class="text-5xl">
-							{title}
-						</p>
-					<br>
-
-
-					
 					{heroImage && 
 						<div class="hero-image">
 								<img width={1020} height={510} src={heroImage} alt="" />
 						</div>
 						<br>
 					}
+					
 
 					<slot />
 				</div>
