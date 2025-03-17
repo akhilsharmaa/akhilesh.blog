@@ -64,11 +64,6 @@ const getshortDescription = (description:string) => {
 								
 								—{pull_request.data.prTitle && getshortDescription(pull_request.data.prTitle)}  
 
-								{pull_request.data.prLabels && 
-										pull_request.data.prLabels.map((tag)=> (
-										<tag class="text-sm">{tag}</tag>
-								))}
-
 							</h5> 
 
 							<p>
@@ -85,6 +80,11 @@ const getshortDescription = (description:string) => {
 									title={pull_request.data.repoName}
 								/> 
 								
+								{pull_request.data.prLabels && 
+										pull_request.data.prLabels.map((tag)=> (
+										<tag class="text-sm">{tag}</tag>
+								))}
+
 								<br>
 
 							</p>  
@@ -101,15 +101,11 @@ const getshortDescription = (description:string) => {
 			<p class="half"> I enjoy solving  data-structure & algorithms problems. 
 					—it helps in improving my problem-solving skills. 
 				</p>
-				
-
 				<div class="grid gap-4 md:grid-cols-3 lg:w-4/6 w-full">
 					<div><Leetcode /></div>
 					<div><CodeForces /></div>
 					<div><Atcoder /></div>
 				</div>
-
-				<br>  
 			<br>
 				 <div class='flex i '>
 					<h4 class="text-4xl">
@@ -120,8 +116,8 @@ const getshortDescription = (description:string) => {
 					</h4> 
 				 </div>
 			
-				 <p class="half">Some of the personal <highlight> Projects </highlight>
-					available in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
+				 <p class="half">All of my personal are projects <highlight> available </highlight>
+					 in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
 					
 			<ul class="half">{
 				projects.map(async (project) => {
@@ -129,9 +125,6 @@ const getshortDescription = (description:string) => {
 					const { Content } = await render(project);
 
 					return (<li>
-						<p class="mb-2 text-xl color-primary">
-							<FormattedDate date={project.data.pubDate} />
-						</p>
 
 						<p class="text-2xl m-0">
 							{project.data.title}
@@ -149,13 +142,16 @@ const getshortDescription = (description:string) => {
 							))}
 						</p>  
 
-						<p class="text-xl project-decription mt-2 mb-1"> 
+						<p class="project-decription mt-2 text-xl mb-1"> 
 							{project.data.description}
 							<a href={`/project#${project.id}`}> 
 								...view more
 							</a>
 						</p>
  
+						<p class="mb-2 text-base text-gray-500">
+							<FormattedDate date={project.data.pubDate} />
+						</p>
 
 						<br>
 
@@ -176,15 +172,15 @@ const getshortDescription = (description:string) => {
 			<ul class="half">
 				{
 					blogs.map((blog) => (
-						<li class="pb-4">
+						<li class="mb-1">
 							<p class="mb-0 text-gray-500 text-xl">
 								<FormattedDate date={blog.data.pubDate} />
 							</p>
 							<a href={`/blog/${blog.id}/`}>
 								<span class="text-2xl">{blog.data.title}</span>
 							</a>
-							<p class="text-base blog-decription"> 
-								— {blog.data.description}
+							<p class="text-base text-gray-600"> 
+								{blog.data.description}
 							</p>
 						</li>
 					))
