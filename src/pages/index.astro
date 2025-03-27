@@ -27,7 +27,7 @@ const projects = (await getCollection('project')).sort(
 );
 
 const getshortDescription = (description:string) => {
-	return description.length > 60 ? description.substring(0, 60) + "..." : description;
+	return description.length > 50 ? description.substring(0, 50) + "..." : description;
 }
 
 ---
@@ -44,30 +44,38 @@ const getshortDescription = (description:string) => {
 		<main>
 				<p class="pb-8 md:text-4xl md:text-left text-center text-3xl slogan italic">Developer / Tinkerer / Student</p>
 				<img class="profile-image" src="assets/profile.jpeg" alt="Placeholder Image" />
-				<p class="half">Currently pursuing bachelor's  in computer science at <Abbr title="Heritage," description="Hertage Institute of Technology, Kolkata \n \t Go to https://www.heritageit.edu/" showLogo=false/>  Kolkata, from 2022—2026. </p>  
+				<p class="half">Currently pursuing bachelor's  in computer science at 
+					<a href="https://www.heritageit.edu/">
+						<Abbr title="Heritage," description="Hertage Institute of Technology, Kolkata \n \t Go to https://www.heritageit.edu/" showLogo=false/> 
+					</a>
+					 Kolkata, from 2022—2026. </p>  
 				<p class="half">During summer of 2024, I joined  
-					<Abbr title="@FarAlpha" description="FarAlpha Technologies, Delhi https://www.faralpha.com/" showLogo=false/>
+					<a href="https://www.faralpha.com/"><Abbr title="@FarAlpha" description="FarAlpha Technologies, Delhi https://www.faralpha.com/" showLogo=false/></a>
 					as <span class="circle-sketch-highlight"> SDE Intern</span>. I worked on CI/CD pipelines, AWS, Terraform,  Web Scraping, Selenium, 
 					ReactJs, ESP32 Board, Flutter, Firebase, WiFi provisioning, and backend services.
 				</p>
-				<p class="half" >I contribute to <highlight> open-source </highlight> projects, 
-					—creating real impact, some of my top contributions are: 
+				<p class="half" >I love contributing on <highlight> open-source </highlight> projects, 
+					and making a real impact — some of my top contributions:
 				</p>
+
 				<ul class="half">{
 					pull_requests.map(async (pull_request) => {
 
 						return (<li>
-							<h5 class="text-xl text-gray-600 project-decription mt-2 mb-1">  
+							<p class="text-base mt-1 mb-1">  
+								
 								<a href={pull_request.data.prLink}>
 									{pull_request.data.prNumber}
+									—
+									<Abbr
+										title={pull_request.data.prTitle && getshortDescription(pull_request.data.prTitle)}  
+										description={pull_request.data.prTitle}
+										showLogo={false}
+									/>
 								</a>
-								
-								—{pull_request.data.prTitle && getshortDescription(pull_request.data.prTitle)}  
-
-							</h5> 
+							</p> 
 
 							<p>
-								<StatusTag status={pull_request.data.prStatus} /> 
 
 								<OrgTag
 									link={pull_request.data.orgLink} 
@@ -79,14 +87,12 @@ const getshortDescription = (description:string) => {
 									link={pull_request.data.repoLink} 
 									title={pull_request.data.repoName}
 								/> 
+								{/* <StatusTag status={pull_request.data.prStatus} />  */}
 								
 								{pull_request.data.prLabels && 
 										pull_request.data.prLabels.map((tag)=> (
 										<tag class="text-sm">{tag}</tag>
 								))}
-
-								<br>
-
 							</p>  
 
 
