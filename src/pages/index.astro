@@ -14,6 +14,7 @@ import GithubTag from '../components/Tags/GithubTag.astro';
 import OrgTag from '../components/Tags/OrgTag.astro';
 import StatusTag from '../components/Tags/StatusTag.astro';
 import Abbr from '../components/Abbr.astro';
+import Toast from '../components/Toast.astro';
 
 const blogs = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -195,8 +196,13 @@ const getshortDescription = (description:string) => {
 
 		</main>	
 
-
-
+		<Toast 
+			title="Check out my new project 'rockettyping'"
+			description="You can play multiplayer typing game with you friends."
+			button="Play Now"
+			link="https://rockettyping.onrender.com/"
+		/>
+	
 	<Footer />
 	</body>
 
