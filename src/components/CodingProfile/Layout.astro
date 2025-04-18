@@ -14,12 +14,13 @@ import RelativeTime from '../RelativeTime.astro';
 ---
 
 <div class:list={['coding-profile-card', platform]} >   
-    <div class="mx-4 my-2">
-        <h4> {platform} </h4>
-        <h4> <span class="item-context"> 
+    <div class="mx-4 my-2 ">
+        <h4> {platform} 
             {badge && 
-                <highlight class=""> @{badge.toUpperCase()} -  </highlight>
+                <highlight class="font-medium"> - {badge.toUpperCase()} </highlight>
             }  
+        </h4>
+        <h4> <span class="item-context"> 
             Rating - </span> <highlight>{highestRating} </highlight> </h4>
         <!-- <h4> <span class="item-context">Badge - </span>{badge}</h4>  -->
         <!-- <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>   -->
@@ -40,7 +41,7 @@ import RelativeTime from '../RelativeTime.astro';
  
 
     .coding-profile-card {
-        background: white;
+        background-color: rgba(255, 251, 246, 0.9);
         width: 100%;
         border-radius: 6px;
         overflow: hidden;
