@@ -10,26 +10,17 @@ import ImageCarosel from '../components/ImageCarosel.astro';
 import { getCollection } from 'astro:content'; 
 import FormattedDate from '../components/FormattedDate.astro';
 import { render } from 'astro:content';
-import GithubTag from '../components/Tags/GithubTag.astro';
-import OrgTag from '../components/Tags/OrgTag.astro';
-import StatusTag from '../components/Tags/StatusTag.astro';
 import Abbr from '../components/Abbr.astro';
 import Toast from '../components/Toast.astro';
+import OrgTag from '../components/Tags/OrgTag.astro';
 
 const blogs = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-
-const pull_requests = await getCollection('pull_request');
-
 const projects = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
 );
-
-const getshortDescription = (description:string) => {
-	return description.length > 50 ? description.substring(0, 50) + "..." : description;
-}
 
 ---
 
@@ -55,53 +46,14 @@ const getshortDescription = (description:string) => {
 					as <span class="circle-sketch-highlight"> SDE Intern</span>. I worked on CI/CD pipelines, AWS, Terraform,  NodeJs, FastAPI, Web-Scraping, Selenium, 
 					ReactJs, Flutter & Firebase. 
 				</p>
-				<p class="half" >I love contributing on <highlight> open-source </highlight> projects, 
-					and making a real impact — some of my top contributions:
+
+				<p class="half" >I love contributing to <a href="/open-source">open-source</a> & had some pull request merged in organization  
+					<OrgTag 
+						title="OpenWISP" 
+						description="OpenWISP is a collection of modules and libraries to build Open Source Network Management Systems."
+					/>.
+					<a  class="text-base" href="/open-source">(view all)</a> 
 				</p>
-
-				<ul class="half">{
-					pull_requests.map(async (pull_request) => {
-
-						return (<li>
-							<p class="text-base mt-1 mb-1">  
-								
-								<a href={pull_request.data.prLink}>
-									{pull_request.data.prNumber}
-									—
-									<Abbr
-										title={pull_request.data.prTitle && getshortDescription(pull_request.data.prTitle)}  
-										description={pull_request.data.prTitle}
-										showLogo={false}
-									/>
-								</a>
-							</p> 
-
-							<p>
-
-								<OrgTag
-									link={pull_request.data.orgLink} 
-									title={pull_request.data.orgName}
-									description={pull_request.data.orgDescription}
-								/> 
-
-								<GithubTag 
-									link={pull_request.data.repoLink} 
-									title={pull_request.data.repoName}
-								/> 
-								{/* <StatusTag status={pull_request.data.prStatus} />  */}
-								
-								{pull_request.data.prLabels && 
-										pull_request.data.prLabels.map((tag)=> (
-										<tag class="text-sm">{tag}</tag>
-								))}
-							</p>  
-
-
-						</li>
-					)})
-					}
-				</ul>
-
 			</div>
 
 			<br>

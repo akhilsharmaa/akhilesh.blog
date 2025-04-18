@@ -1,0 +1,101 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { render } from 'astro:content';
+import { YouTube } from 'astro-embed';
+import Abbr from '../../components/Abbr.astro';
+import OrgTag from '../../components/Tags/OrgTag.astro';
+import GithubTag from '../../components/Tags/GithubTag.astro';
+
+const posts = (await getCollection('project')).sort(
+	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
+);
+
+const pull_requests = await getCollection('pull_request');
+
+
+const getshortDescription = (description:string) => {
+	return description.length > 50 ? description.substring(0, 50) + "..." : description;
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		
+		<BaseHead title={"Projects / Akhilesh Kr Sharma"} 
+			description={SITE_DESCRIPTION} 
+  		/>				
+
+		<style> 
+
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<p class="text-4xl text-neutral-950">Open Source Contributions</p>
+				<p> I enjoy contributing to open-source projects and have had several pull requests merged. </p>
+
+				<ul>
+					{
+						pull_requests.map(async (pull_request) => {
+						  return (
+						  <hr>
+							<li id={pull_request.id}>
+                                {pull_request.data.prDate && 
+                                    <p class="mb-2 text-1xl">
+                                        <FormattedDate date={pull_request.data.prDate} />
+                                    </p>
+                                }
+                                
+							<p class="text-xl mt-1 mb-1">  
+								<a href={pull_request.data.prLink}>
+									{pull_request.data.prNumber}
+									—
+									<Abbr
+										title={pull_request.data.prTitle}  
+										description={pull_request.data.prTitle}
+										showLogo={false}
+									/>
+								</a>
+							</p> 
+
+							<p>
+
+								<OrgTag
+									link={pull_request.data.orgLink} 
+									title={pull_request.data.orgName}
+									description={pull_request.data.orgDescription}
+								/> 
+
+								<GithubTag
+									link={pull_request.data.repoLink} 
+									title={pull_request.data.repoName}
+								/> 
+								{/* <StatusTag status={pull_request.data.prStatus} />  */}
+								
+								{pull_request.data.prLabels && 
+										pull_request.data.prLabels.map((tag)=> (
+										<tag class="text-sm">{tag}</tag>
+								))}
+							</p>  
+
+
+                            </li>
+							<br>
+						  );
+						})
+					  }
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
