@@ -50,12 +50,12 @@ const getshortDescription = (description:string) => {
 						  <hr>
 							<li id={pull_request.id}>
                                 {pull_request.data.prDate && 
-                                    <p class="mb-2 text-1xl">
-                                        <FormattedDate date={pull_request.data.prDate} />
+									<p class="text-xl mb-1 text-gray-600">
+										<FormattedDate date={pull_request.data.prDate} />
                                     </p>
                                 }
                                 
-							<p class="text-xl mt-1 mb-1">  
+							<p class="text-1xl mt-1 mb-1">  
 								<a href={pull_request.data.prLink}>
 									{pull_request.data.prNumber}
 									—

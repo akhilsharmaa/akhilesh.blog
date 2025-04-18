@@ -86,15 +86,16 @@ const projects = (await getCollection('project')).sort(
 
 					return (<li>
 
-						<p class="text-2xl m-0">
+						<a class="text-2xl m-0">
 							{project.data.title}
-						</p>
+						</a>
  
 						<p class="mt-0 mb-0">
 							{ project.data.deploymentLink && 
+
 							<a class="deployment-link"
 								href={project.data.deploymentLink}>
-									{project.data.deploymentLink}
+								{project.data.deploymentLink}
 							</a>} 
 							
 							{project.data.tags.map((tag)=> (
