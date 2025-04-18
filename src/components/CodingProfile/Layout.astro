@@ -16,8 +16,12 @@ import RelativeTime from '../RelativeTime.astro';
 <div class:list={['coding-profile-card', platform]} >   
     <div class="mx-4 my-2">
         <h4> {platform} </h4>
-        <h4> <span class="item-context">Rating - </span> <highlight>{highestRating}  </highlight> </h4>
-        <h4> <span class="item-context">Badge - </span>{badge}</h4> 
+        <h4> <span class="item-context"> 
+            {badge && 
+                <highlight class=""> @{badge.toUpperCase()} -  </highlight>
+            }  
+            Rating - </span> <highlight>{highestRating} </highlight> </h4>
+        <!-- <h4> <span class="item-context">Badge - </span>{badge}</h4>  -->
         <!-- <h4> <span class="item-context">Current Rating - </span> {currentRating}</h4>   -->
         <!-- ADD A DESCRIPTION DIV -->
         <div class="description text-sm">
@@ -26,7 +30,7 @@ import RelativeTime from '../RelativeTime.astro';
                 <a href={url} class="text-sm">Profile Link</a>
             </p> 
         </div>
-        <p class="text-xs h-2 text-gray-400 w-full text-center"> Data fetched on - <FormattedDate date={timeOfRequest} /> </p> 
+        <!-- <p class="text-xs h-2 text-gray-400 w-full text-center"> Data fetched on - <FormattedDate date={timeOfRequest} /> </p>  -->
     </div>
 </div> 
 
@@ -52,11 +56,11 @@ import RelativeTime from '../RelativeTime.astro';
     }
 
     .Codeforces {
-        background-color: #52e7ef0e;
+        /* background-color: #ffffff0e; */
     }
 
     .Leetcode {
-        background-color: #d5913813;
+        /* background-color: #f4c28013; */
     }
 
     .Atcoder {
