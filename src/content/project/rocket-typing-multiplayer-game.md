@@ -4,7 +4,7 @@ description: 'Typing Multiplayer Game built using Node.js, Express, and Socket.I
 pubDate: 'Jan 20 2024'
 codeLink: "https://github.com/akhilsharmaa/Rocket-Typing-Multiplayer-Game"
 deploymentLink: "https://rockettyping.onrender.com"
-demoLink: ""
+demoLink: "https://www.youtube.com/"
 heroImage: "./assets/rocketthumbnail.png"
 rank: "1"
 tags: ["NodeJs", "aws", "SocketIO"] 

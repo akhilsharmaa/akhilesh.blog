@@ -20,58 +20,6 @@ const projects = (await getCollection('project')).sort(
 		<BaseHead title={"Projects / Akhilesh Kr Sharma"} 
 			description={SITE_DESCRIPTION} 
   		/>				
-
-		<style> 
-			
-			.project-content{
-				border: 1px #e0e0e0 solid;
-				border-radius: 4px;
-				padding: 1rem 0;
-				margin-bottom: 1rem;
-				font-size: 1rem;
-				background-color: #fbfbfb;
-			}
-
-			li{
-				ul {
-					list-style-type: disc;
-					margin: 0;
-					padding-left: 1rem;
-					padding-bottom: -1rem;
-				}
-
-				li {
-					line-height: 1.7rem;
-				}
-			}
-
-			.project-title{
-				margin: 0rem;
-			}
-
-			.yt-embed{ 
-				max-width: 40rem;
-				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
-				border-radius: 10px; 	
-				margin: 2rem 1rem 1rem 1rem;
-			}
- 
-
-			@media (max-width: 720px) {
-				li{
-					ul {
-						list-style-type: disc;
-						margin: 0;
-						padding-left: 2rem;
-					}
-
-					li {
-
-					}
-				}
-			}
-			
-		</style>
 	</head>
 	<body>
 		<Header />

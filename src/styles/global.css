@@ -183,6 +183,20 @@ img {
 	border-radius: 8px;
 }
 
+
+
+li{
+	ul {
+		font-size: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	li {
+		font-size: 1.15rem;
+		line-height: 1.75rem;
+	}
+}
+
 main hr{
 	margin:  2rem 0rem;
 	border-bottom: 1px solid #e9e9e9;
