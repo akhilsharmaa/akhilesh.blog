@@ -1,0 +1,52 @@
+--- 
+const { link } = Astro.props;
+
+let title = link;
+if(link.substring(0, 5) === "https") {
+    title = link.substring(8); 
+}else if(link.substring(0, 5) === "http") {
+    title = link.substring(7); 
+}
+
+---
+<a class="deployment-link mr-2"
+	href={link}>
+    {
+        title !== link && 
+        <img src="./assets/rocket-158_128.gif" 
+        class="h-10 w-4 overflow-hidden object-cover inline-block" >
+    }
+    {title}
+</a>
+
+<style>
+    
+	.deployment-link{
+		border-radius: 100px;
+		text-underline-offset: 3px;
+		border: 1px solid var(--accent);
+		color: white;
+		background-color: var(--accent);
+		color: white;
+		padding: 1px 10px;
+		font-size: 1rem;
+		text-decoration: none;
+	}
+
+	.project-thumbnail-sm{
+		box-shadow: #000d8a solid 2px 2px;
+		text-decoration: none;
+		color: white;
+	}
+		
+	@keyframes mymove {
+	}
+	
+
+	.deployment-link:hover{
+		color: var(--accent);
+		background-color: white; 
+	}
+	
+
+</style>

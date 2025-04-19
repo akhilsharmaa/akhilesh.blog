@@ -1,5 +1,10 @@
 --- 
-const { link, title } = Astro.props;
+let { link, title } = Astro.props;
+
+if(!title){
+    title = link.substring(32);
+}
+
 ---
 
 <span class="tags">
