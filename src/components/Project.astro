@@ -43,6 +43,10 @@ const { Content } = await render(project);
         text-decoration: none;
     }
 
+    .project-thumbnail-sm{
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+
     .close-button {
         position: absolute;
         top: -40px;
@@ -75,11 +79,13 @@ const { Content } = await render(project);
 
 <div>
 
+    <p class="text-3xl my-2">
+        {project.data.title}
+    </p>
+    
     <div class="grid gap-6 md:grid-cols-3 w-full">
+        
         <div class="col-span-2">
-            <p class="text-3xl my-2">
-                {project.data.title}
-            </p>
 
             {
                 project.data.deploymentLink && 
