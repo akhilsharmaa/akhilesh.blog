@@ -1,0 +1,111 @@
+---
+let { project } = Astro.props;
+import FormattedDate from '../components/FormattedDate.astro';
+import GithubTag from '../components/Tags/GithubTag.astro';
+import DeploymentTag from '../components/Tags/DeployedTag.astro';
+import { render } from 'astro:content';
+import { YouTube } from 'astro-embed';
+const { Content } = await render(project);
+
+---
+
+
+<style> 
+			
+    .project-content{
+        border: 1px #e0e0e0 solid;
+        border-radius: 4px;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        background-color: #fbfbfb;
+    }
+
+    li{
+        ul {
+            list-style-type: disc;
+            margin: 0;
+            padding-left: 1rem;
+            padding-bottom: -1rem;
+        }
+
+        li {
+            line-height: 1.7rem;
+        }
+    }
+
+    .project-title{
+        margin: 0rem;
+    }
+
+    .yt-embed{ 
+        max-width: 40rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
+        border-radius: 10px; 	
+        margin: 2rem 1rem 1rem 1rem;
+    }
+
+
+    @media (max-width: 720px) {
+        li{
+            ul {
+                list-style-type: disc;
+                margin: 0;
+                padding-left: 2rem;
+            }
+
+            li {
+
+            }
+        }
+    }
+    
+</style>
+
+
+<div class="grid gap-6 md:grid-cols-3 w-full">
+    <div class="col-span-2">
+        <p class="text-2xl m-0">
+            {project.data.title}
+        </p>
+
+        <DeploymentTag link={project.data.deploymentLink}/>
+        <GithubTag link={project.data.codeLink}/>
+
+        
+        <p class="project-decription text-xl text-gray-700 mb-1"> 
+            {project.data.description}
+            <a href={`/project#${project.id}`}> 
+                ...view more
+            </a>
+        </p>
+
+
+    </div>
+    <img  
+        class="project-thumbnail-sm"
+        src={project.data.heroImage} alt=""
+        />
+    </div>
+
+    <div class="project-content">
+        <Content />
+    </div>
+
+
+    {project.data.tags && 
+        project.data.tags.map((tag:string)=> (
+        <tag class="text-sm">{tag}</tag>
+    ))}
+    
+
+    <p class="mb-2 text-base text-gray-500">
+        <FormattedDate date={project.data.pubDate} />
+    </p>
+
+
+    {project.data.demoLink && 
+        <div class="mt-10">
+            <YouTube class="yt-embed" id={project.data.demoLink} /> 
+        </div>
+    }

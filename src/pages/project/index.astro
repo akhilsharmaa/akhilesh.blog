@@ -4,11 +4,10 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 import { render } from 'astro:content';
-import { YouTube } from 'astro-embed';
+import Project from "../../components/Project.astro"
 
-const posts = (await getCollection('project')).sort(
+const projects = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
 );
 
@@ -83,55 +82,15 @@ const posts = (await getCollection('project')).sort(
 
 				<ul>
 					{
-						posts.map(async (post) => {
-						  // Destructure the Astro <Content/> component out
-						  const { Content } = await render(post);
-			
-						  // Then return your UI
+						projects.map(async (project) => {
 						  return (
-						  <hr>
-
-							<li id={post.id}>
-								<p class="mb-2 text-xl color-primary">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-
-								<div class="flex flex-wrap items-center justify-between ">
-									<h1 class="text-3xl project-title">{post.data.title}</h1> 
-									<div>
-										 <a href={post.data.codeLink}>github</a>
- 									</div>
-								</div>
-
-								{
-									post.data.deploymentLink && 
-									<a class="deployment-link"
-											href={post.data.deploymentLink}>
-												{post.data.deploymentLink}
-									</a> 
-								}
-								
-								<a href="post.data.codeLink"></a>
-								<p class="text-xl">{post.data.description}</p>  
-
-								<div class="project-content">
-									<Content />
-								</div>
-
-								{post.data.tags && post.data.tags.map((tag)=> (
-									<tag class="text-xl">{tag}</tag>
-								))} 
-
-								{post.data.demoLink && 
-								<div class="mt-10">
-									<YouTube class="yt-embed" id={post.data.demoLink} /> 
-								</div>
-								}
+						  	<hr>
+							<li id={project.id}>
+								<Project project={project} />
 							</li>
-							<br>
 						  );
 						})
-					  }
+					}
 				</ul>
 			</section>
 		</main>
