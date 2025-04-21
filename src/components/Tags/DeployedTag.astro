@@ -4,7 +4,7 @@ const { link } = Astro.props;
 let title = link;
 if(link.substring(0, 5) === "https") {
     title = link.substring(8); 
-}else if(link.substring(0, 5) === "http") {
+}else if(link.substring(0, 4) === "http") {
     title = link.substring(7); 
 }
 

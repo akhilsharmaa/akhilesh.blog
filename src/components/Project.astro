@@ -74,57 +74,60 @@ const { Content } = await render(project);
 </style>
 
 <div>
+     <p class="text-3xl my-2">
+        {project.data.title}
+    </p>
 
-    <div class="grid gap-6 md:grid-cols-3 w-full">
-        <div class="col-span-2">
-            <p class="text-3xl my-2">
-                {project.data.title}
-            </p>
+    <div class="lg:flex">
+
+        <div class="lg:w-2/3 w-full">
 
             {
                 project.data.deploymentLink && 
                 <DeploymentTag link={project.data.deploymentLink}/>
             }
             <GithubTag link={project.data.codeLink}/>
-            
+
             <p class="project-decription text-xl text-gray-700 mb-1"> 
                 {project.data.description}
                 <!-- <a href={`/project#${project.id}`}> 
                     ...view more
                 </a> -->
-                {project.data.tags && 
-                    project.data.tags.map((tag:string)=> (
-                    <tag class="text-sm">{tag}</tag>
-                ))}
             </p>    
-        </div>
 
-        <div class="">
-            <a  
-                class="flex flex-wrap justify-center video-demo-link"
-                href={project.data.demoLink}>
-
-                <img  
-                    class="project-thumbnail-sm"
-                    src={project.data.heroImage} alt=""
-                />
-                    {project.data.demoLink && 
-                        <span class="text-base text-gray-800 m-1">
-                            video demo
-                        </span>
-                    }
-                </a>
-        </div>
+            {project.data.tags && 
+                project.data.tags.map((tag:string)=> (
+                <tag class="text-sm">{tag}</tag>
+            ))}
             
+            <p class="mb-2 text-base text-gray-500">
+                <FormattedDate date={project.data.pubDate} />
+            </p>
+        </div>
+
+        <div class="lg:w-1/3 w-full lg:ml-4">
+            <a  class="flex flex-wrap justify-center video-demo-link"
+            href={project.data.demoLink}>
+
+            <img  
+                class="project-thumbnail-sm"
+                src={project.data.heroImage} alt=""
+            />
+            
+            {project.data.demoLink && 
+                <span class="text-base text-gray-800 m-1">
+                    video demo
+                </span>
+            }
+        </a>
+        </div>
+        
+        </div>
     </div>
 
     <!-- <div class="project-content">
      <Content />
     </div>  -->
-
-    <p class="mb-2 text-base text-gray-500">
-        <FormattedDate date={project.data.pubDate} />
-    </p>
 
     <!-- {project.data.demoLink && 
         <div class="mt-0">
