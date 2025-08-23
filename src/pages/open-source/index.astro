@@ -47,51 +47,52 @@ const getshortDescription = (description:string) => {
 					{
 						pull_requests.map(async (pull_request) => {
 						  return (
-						  <hr>
-							<li id={pull_request.id}>
-                                {pull_request.data.prDate && 
-									<p class="text-xl mb-1 text-gray-600">
-										<FormattedDate date={pull_request.data.prDate} />
-                                    </p>
-                                }
-                                
-							<p class="text-1xl mt-1 mb-1">  
-								<a href={pull_request.data.prLink}>
-									{pull_request.data.prNumber}
-									—
-									<Abbr
-										title={pull_request.data.prTitle}  
-										description={pull_request.data.prTitle}
-										showLogo={false}
-									/>
-								</a>
-							</p> 
+						  <!--<hr>-->
+            	<li id={pull_request.id}>
+              <div class=" flex justify-start items-start">
+                  {pull_request.data.prDate && 
+                    <div class="pt-1 "> 
+                      <p class="text-xl text-gray-600">
+                        <FormattedDate date={pull_request.data.prDate} />
+                      </p>
+                    </div> 
+                  }
 
-							<p>
+                  <div class="pl-6">
+                      <p class="text-1xl mb-1">  
+                        <a href={pull_request.data.prLink}>
+                          {pull_request.data.prNumber}
+                          —
+                          <Abbr
+                            title={pull_request.data.prTitle}  
+                            description={pull_request.data.prTitle}
+                            showLogo={false}
+                          />
+                        </a>
+                      </p> 
+                      <div>
+                        <OrgTag
+                          link={pull_request.data.orgLink} 
+                          title={pull_request.data.orgName}
+                          description={pull_request.data.orgDescription}
+                        /> 
 
-								<OrgTag
-									link={pull_request.data.orgLink} 
-									title={pull_request.data.orgName}
-									description={pull_request.data.orgDescription}
-								/> 
-
-								<GithubTag
-									link={pull_request.data.repoLink} 
-									title={pull_request.data.repoName}
-								/> 
-								{/* <StatusTag status={pull_request.data.prStatus} />  */}
-								
-								{pull_request.data.prLabels && 
-										pull_request.data.prLabels.map((tag)=> (
-										<tag class="text-sm">{tag}</tag>
-								))}
-							</p>  
-
-
-                            </li>
-							<br>
-						  );
-						})
+                        <GithubTag
+                          link={pull_request.data.repoLink} 
+                          title={pull_request.data.repoName}
+                        /> 
+                        <!--<StatusTag status={pull_request.data.prStatus} />-->
+                        <!---->
+                        {pull_request.data.prLabels && 
+                            pull_request.data.prLabels.map((tag)=> (
+                            <tag class="text-sm">{tag}</tag>
+                        ))}
+                      </div>  
+                  </div>
+              </div>
+            	</li> 
+						);
+					})
 					  }
 				</ul>
 			</section>
