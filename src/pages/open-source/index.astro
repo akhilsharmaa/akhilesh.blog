@@ -40,60 +40,35 @@ const getshortDescription = (description:string) => {
 		<Header />
 		<main>
 			<section>
-				<p class="text-4xl text-neutral-950">Open Source Contributions</p>
+				<p class="text-5xl text-neutral-950">Open Source</p>
 				<p> I enjoy contributing to open-source projects and have had several pull requests merged. </p>
+				<hr>
 
 				<ul>
 					{
 						pull_requests.map(async (pull_request) => {
 						  return (
-						  <!--<hr>-->
-            	<li id={pull_request.id}>
-              <div class=" flex justify-start items-start">
-                  {pull_request.data.prDate && 
-                    <div class="pt-1 "> 
-                      <p class="text-xl text-gray-600">
-                        <FormattedDate date={pull_request.data.prDate} />
-                      </p>
-                    </div> 
-                  }
-
-                  <div class="pl-6">
-                      <p class="text-1xl mb-1">  
-                        <a href={pull_request.data.prLink}>
-                          {pull_request.data.prNumber}
-                          —
-                          <Abbr
-                            title={pull_request.data.prTitle}  
-                            description={pull_request.data.prTitle}
-                            showLogo={false}
-                          />
-                        </a>
-                      </p> 
-                      <div>
-                        <OrgTag
-                          link={pull_request.data.orgLink} 
-                          title={pull_request.data.orgName}
-                          description={pull_request.data.orgDescription}
-                        /> 
-
-                        <GithubTag
-                          link={pull_request.data.repoLink} 
-                          title={pull_request.data.repoName}
-                        /> 
-                        <!--<StatusTag status={pull_request.data.prStatus} />-->
-                        <!---->
-                        {pull_request.data.prLabels && 
-                            pull_request.data.prLabels.map((tag)=> (
-                            <tag class="text-sm">{tag}</tag>
-                        ))}
-                      </div>  
-                  </div>
-              </div>
-            	</li> 
+                <li id={pull_request.id}>
+								    <p class="text-xl h-3"><FormattedDate date={pull_request.data.prDate} /> </p> 
+                    <p class="text-2xl mb-1">  
+                      <a href={pull_request.data.prLink}>
+                        {pull_request.data.prTitle}
+                        —{pull_request.data.prNumber}
+                      </a>
+                    </p>
+                    <div>
+                      <OrgTag link={pull_request.data.orgLink}  title={pull_request.data.orgName} description={pull_request.data.orgDescription}/> 
+                      <GithubTag link={pull_request.data.repoLink}  title={pull_request.data.repoName}/> 
+                      {pull_request.data.prLabels && 
+                          pull_request.data.prLabels.map((tag)=> (
+                          <tag class="text-sm">{tag}</tag>
+                      ))}
+                    </div>
+                    <br/>
+                </li> 
 						);
-					})
-					  }
+					})					  
+          }
 				</ul>
 			</section>
 		</main>
