@@ -9,7 +9,7 @@ orgLabels: ["Python", "Django", "OpenWRT"]
 prTitle: "[fix] Handle importing UTF-16 encoded CSV files,  Unit Tests"
 prNumber: "#568"
 prStatus: "Merged"
-prDescription: ""
+prDescription: "Fixed CSV import failures by implementing automatic encoding detection using chardet library with UTF-16 fallback. Previously only supported UTF-8, now handles both UTF-8 and UTF-16 encoded files seamlessly."
 prLink: "https://github.com/openwisp/openwisp-radius/pull/568"
 prDate: 'Dec 26 2024'
 prLabels: ["Python", "Pandas"] 

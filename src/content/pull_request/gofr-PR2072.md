@@ -1,15 +1,15 @@
 ---
 orgName: "Gofr.dev"
 orgLink: "https://github.com/gofr-dev"
-orgDescription: "An opinionated GoLang framework for accelerated microservice development. Built in support for databases and observability."
+orgDescription: "An opinionated GoLang framework for microservice development. Built in support for databases and observability."
 repoName: "gofr"
 repoLink: "https://github.com/gofr-dev/gofr"
 orgLabels: ["golang", "microservice"] 
 
 prTitle: "[Gofr-SOC] InfluxDB Connector for GoFr"
 prNumber: "#2072"
-prStatus: "Open"
-prDescription: "This PR introduces native support for InfluxDB, a widely-used time-series database, to GoFr. With this integration, GoFr can now seamlessly store and query high-frequency data such as metrics and sensor data, enhancing its capabilities for time-series workloads."
+prStatus: "Merged"
+prDescription: "Implemented as part of [GoFr-SOC 2025] Core Framework track. Built native InfluxDB time-series database support for GoFr framework with complete datasource integration, logging, tracing, and metrics."
 prLink: "https://github.com/gofr-dev/gofr/pull/2072"
 prDate: 'Jul 17 2025'
 prLabels: ["InfluxDB", "datasource"] 
