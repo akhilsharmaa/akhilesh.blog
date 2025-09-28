@@ -10,6 +10,7 @@ import { YouTube } from 'astro-embed';
 import Abbr from '../../components/Abbr.astro';
 import OrgTag from '../../components/Tags/OrgTag.astro';
 import GithubTag from '../../components/Tags/GithubTag.astro';
+import StatusTag from '../../components/Tags/StatusTag.astro';
 
 const posts = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
@@ -50,7 +51,8 @@ const getshortDescription = (description:string) => {
 						  return (
                 <tr id={pull_request.id}>
                     <td class="align-top">
-                      <p class="text-xl h-3"><FormattedDate date={pull_request.data.prDate} /> </p> 
+                      <p class="text-xl inline h-3"><FormattedDate date={pull_request.data.prDate} /> </p> 
+                      <StatusTag status={pull_request.data.prStatus}/>
                     </td>
                     <td>
                       <OrgTag link={pull_request.data.orgLink}  title={pull_request.data.orgName} description={pull_request.data.orgDescription}/> 
@@ -61,12 +63,14 @@ const getshortDescription = (description:string) => {
                               —{pull_request.data.prNumber}
                             </a>
                         </p>
+                        <p class="text-base mb-1 w-3/4">  
+                            {pull_request.data.prDescription}
+                        </p>
                         <div>
                           {pull_request.data.orgLabels && 
                               pull_request.data.orgLabels.map((tag)=> (
                               <tag class="text-sm">{tag}</tag>
                           ))}
-
                           {pull_request.data.prLabels && 
                               pull_request.data.prLabels.map((tag)=> (
                               <tag class="text-sm">{tag}</tag>

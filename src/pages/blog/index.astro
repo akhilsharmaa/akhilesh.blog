@@ -37,7 +37,7 @@ const posts = (await getCollection('blog')).sort(
 							<li>
 								<p class="text-xl h-3"><FormattedDate date={post.data.pubDate} /> </p> 
 								<div class="flex flex-wrap items-center justify-between ">
-									<a class="text-1xl"
+									<a class="text-2xl"
 										href={`/blog/${post.id}`} > {post.data.title}</a> 
 									<div>
 										{/* <a href={post.data.description}>github</a> */}
