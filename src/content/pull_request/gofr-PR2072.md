@@ -9,7 +9,7 @@ orgLabels: ["golang", "microservice"]
 prTitle: "[Gofr-SOC] InfluxDB Connector for GoFr"
 prNumber: "#2072"
 prStatus: "Merged"
-prDescription: "Implemented as part of [GoFr-SOC 2025] Core Framework track. Built native InfluxDB time-series database support for GoFr framework with complete datasource integration, logging, tracing, and metrics."
+prDescription: "Contributed as part of GoFr-Summer of Code 2025, (Core Framework track). Built native InfluxDB time-series database support for GoFr framework with complete datasource integration, logging, tracing, and metrics."
 prLink: "https://github.com/gofr-dev/gofr/pull/2072"
 prDate: 'Jul 17 2025'
 prLabels: ["InfluxDB", "datasource"] 
