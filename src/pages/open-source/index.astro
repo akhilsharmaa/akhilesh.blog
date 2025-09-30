@@ -45,19 +45,19 @@ const getshortDescription = (description:string) => {
 				<p> I enjoy contributing to open-source projects and have had several pull requests merged. </p>
 				<hr>
 
-				<table>
+        <table class="border-separate border-spacing-x-4">
 					{
 						pull_requests.map(async (pull_request) => {
 						  return (
                 <tr id={pull_request.id}>
-                    <td class="align-top">
-                      <p class="text-xl inline h-3"><FormattedDate date={pull_request.data.prDate} /> </p> 
+                    <td class="align-top px-2 py-0">
+                      <FormattedDate date={pull_request.data.prDate} /> 
                       <StatusTag status={pull_request.data.prStatus}/>
                     </td>
-                    <td>
+                    <td class="align-top px-2 py-0">
                       <OrgTag link={pull_request.data.orgLink}  title={pull_request.data.orgName} description={pull_request.data.orgDescription}/> 
                       <GithubTag link={pull_request.data.repoLink}  title={pull_request.data.repoName}/> 
-                        <p class="text-1xl mb-1">  
+                        <p class="text-1xl">  
                             <a href={pull_request.data.prLink}>
                               {pull_request.data.prTitle}
                               —{pull_request.data.prNumber}
