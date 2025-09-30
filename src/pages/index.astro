@@ -25,6 +25,9 @@ const projects = (await getCollection('project')).sort(
 	(a, b) => a.data.rank.valueOf() - b.data.rank.valueOf(),
 );
 
+const pull_requests = (await getCollection('pull_request')).sort(
+	(a, b) => a.data.prDate.valueOf() - b.data.prDate.valueOf(),
+);
 ---
 
 <!doctype html>
@@ -57,30 +60,57 @@ const projects = (await getCollection('project')).sort(
           check out some of my contribution. 
           <a class="text-base" href="/open-source">(view contributions)</a>
         </p>
+
 			</div>
 
-			<p class="half"> 
-        Sometime, I mess around  <highlight> data-structure & algorithms </highlight> 
-        — still not sure if it's actually improves problem-solving or 
-        I'm just memorizing patterns.
+      <!-- ------------------------------------ -->
+      <!-- --- DATA STRUCTURES & ALGORITHMS --- -->
+      <!-- ------------------------------------ -->
+			<p class="half">
+          Sometimes, I juggle Data Structures & Algorithms — they say it improve problem-solving.
       </p>
-			<div class="grid gap-4 md:grid-cols-2 lg:w-4/6 w-full">
-				<Leetcode />
-				<CodeForces />
-				<!-- <Atcoder /> -->
-			</div>
-			<br>
-				 <div class='flex i '>
-					<h4 class="text-4xl">
-						Personal Projects
-						<sup>					
-							<a class="text-xl" href="project"> (view all) </a>
-						</sup>
-					</h4> 
-				 </div>
-			
-				 <p class="half">All of my personal are projects <highlight> available </highlight>
-					 in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
+      <table class="border-separate border-spacing-x-4">
+          <tr id="1" class="m-0">
+              <td class="align-top">
+                <p class="text-xl leading-tight mb-1"> 
+                  <a href="https://leetcode.com/u/akhilsharmaa/">Leetcode</a>
+                </p>
+              </td>
+              <td class="align-top">
+                  <p class="text-xl leading-tight mb-1">  
+                      Rating: 1709+, solved 450+ problems
+                  </p>
+              </td>
+          </tr>
+          <tr id="2" class="m-0">
+              <td class="align-top"> 
+                <p class="text-xl leading-tight mb-1"> 
+                  <a href="https://codeforces.com/profile/akhilsharmaa">CodeForces</a>
+                </p>
+              </td>
+              <td class="align-top">
+                  <p class="text-xl leading-tight mb-1">  
+                  Rating: 1320+, <highlight>@PUPIL</highlight>  
+                  </p>
+              </td>
+          </tr> 
+      </table>
+
+      <div class='flex i '>
+      <h4 class="text-4xl">
+        Personal Projects
+        <sup>					
+          <a class="text-xl" href="project"> (view all) </a>
+        </sup>
+      </h4> 
+      </div>
+
+
+      <!-- ------------------------------------ -->
+      <!-- ------------ PROJECTS -------------- -->
+      <!-- ------------------------------------ -->
+      <p class="half">All of my personal are projects <highlight> available </highlight>
+        in (<a href="https://github.com/akhilsharmaa">github</a>) are - </p>
 					
 			<ul class="">{
 				projects.map(async (project) => {
