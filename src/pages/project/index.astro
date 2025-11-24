@@ -23,8 +23,8 @@ const projects = (await getCollection('project')).sort(
   		/>				
 	</head>
 	<body>
-		<Header />
 		<main>
+		<Header />
 			<section>
 				<p class="text-5xl text-neutral-950">Personal projects</p>
 				<p>This page lists some of my personal projects, also available on <a href="https://github.com/akhilsharmaa">Github</a>.</p>
@@ -44,6 +44,5 @@ const projects = (await getCollection('project')).sort(
 			</section>
 		</main>
 		<Footer />
-		<SubFooter />
 	</body>
 </html>

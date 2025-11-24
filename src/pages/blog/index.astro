@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SubFooter from '../../components/SubFooter.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -10,8 +11,6 @@ import { render } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-
 
 ---
 
@@ -24,8 +23,8 @@ const posts = (await getCollection('blog')).sort(
 		/>		
 	</head>
 	<body>
-		<Header />
 		<main>
+		<Header />
 			<section>
 				<p class="text-5xl text-neutral-950">Blog posts</p>
 				<p>This page lists some of my blogs , also available on <a href="https://medium.com/@akhilsharmaa">medium</a>.</p>

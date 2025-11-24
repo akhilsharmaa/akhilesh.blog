@@ -38,51 +38,51 @@ const getshortDescription = (description:string) => {
 		</style>
 	</head>
 	<body>
-		<Header />
 		<main>
-			<section>
-				<p class="text-5xl text-neutral-950">Open Source</p>
-				<p> I enjoy contributing to open-source projects and have had several pull requests merged. </p>
-				<hr>
+		<Header />
+		<section>
+			<p class="text-5xl text-neutral-950">Open Source</p>
+			<p> I enjoy contributing to open-source projects and have had several pull requests merged. </p>
+			<hr>
 
-        <table class="border-separate border-spacing-x-4">
-					{
-						pull_requests.map(async (pull_request) => {
-						  return (
-                <tr id={pull_request.id}>
-                    <td class="align-top px-2 py-0">
-                      <FormattedDate date={pull_request.data.prDate} /> 
-                      <StatusTag status={pull_request.data.prStatus}/>
-                    </td>
-                    <td class="align-top px-2 py-0">
-                      <OrgTag link={pull_request.data.orgLink}  title={pull_request.data.orgName} description={pull_request.data.orgDescription}/> 
-                      <GithubTag link={pull_request.data.repoLink}  title={pull_request.data.repoName}/> 
-                        <p class="text-1xl">  
-                            <a href={pull_request.data.prLink}>
-                              {pull_request.data.prTitle}
-                              —{pull_request.data.prNumber}
-                            </a>
-                        </p>
-                        <p class="text-base mb-1 w-3/4">  
-                            {pull_request.data.prDescription}
-                        </p>
-                        <div>
-                          {pull_request.data.orgLabels && 
-                              pull_request.data.orgLabels.map((tag)=> (
-                              <tag class="text-sm">{tag}</tag>
-                          ))}
-                          {pull_request.data.prLabels && 
-                              pull_request.data.prLabels.map((tag)=> (
-                              <tag class="text-sm">{tag}</tag>
-                          ))}
-                        </div>
-                    <br/>
-                    </td>
-                </tr> 
-						);
-					})					  
-          }
-				</table>
+		<table class="border-separate border-spacing-x-4">
+						{
+							pull_requests.map(async (pull_request) => {
+							  return (
+			<tr id={pull_request.id}>
+			    <td class="align-top px-2 py-0">
+			      <FormattedDate date={pull_request.data.prDate} /> 
+			      <StatusTag status={pull_request.data.prStatus}/>
+			    </td>
+			    <td class="align-top px-2 py-0">
+			      <OrgTag link={pull_request.data.orgLink}  title={pull_request.data.orgName} description={pull_request.data.orgDescription}/> 
+			      <GithubTag link={pull_request.data.repoLink}  title={pull_request.data.repoName}/> 
+				<p class="text-1xl">  
+				    <a href={pull_request.data.prLink}>
+				      {pull_request.data.prTitle}
+				      —{pull_request.data.prNumber}
+				    </a>
+				</p>
+				<p class="text-base mb-1 w-3/4">  
+				    {pull_request.data.prDescription}
+				</p>
+				<div>
+				  {pull_request.data.orgLabels && 
+				      pull_request.data.orgLabels.map((tag)=> (
+				      <tag class="text-sm">{tag}</tag>
+				  ))}
+				  {pull_request.data.prLabels && 
+				      pull_request.data.prLabels.map((tag)=> (
+				      <tag class="text-sm">{tag}</tag>
+				  ))}
+				</div>
+			    <br/>
+			    </td>
+			</tr> 
+							);
+						})					  
+		  }
+					</table>
 			</section>
 		</main>
 		<Footer />

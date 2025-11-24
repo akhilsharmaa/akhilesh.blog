@@ -20,7 +20,7 @@ import { SITE_TITLE } from '../consts';
 <style>
 	header {
 		margin: 0;
-		padding: 0 0 2em;
+		padding: 0 10em;
 		background: var(--background);
 	}
 	h2 {

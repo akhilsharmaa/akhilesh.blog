@@ -1,4 +1,5 @@
 ---
+import SubFooter from './SubFooter.astro';
 const today = new Date();
 ---
 
@@ -40,6 +41,7 @@ const today = new Date();
 	<p class="text-xl"> Akhilesh Kumar Sharma &copy; {today.getFullYear()} </p>
 	<p class="text-sm"> Design <del>copied</del> inspired by <span><a href="https://nadh.in/">nadh.in</a></span> </p>
 	
+		<SubFooter />
 </footer>
 <style>
 	footer {
